@@ -1,896 +1,562 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deepak Kumar Mishra — AI/ML Engineer & Architect</title>
+  <meta name="description" content="AI/ML Engineer & Senior Full-Stack Developer specializing in Agentic AI, Sovereign LLMs, and National-scale API platforms." />
 
-  <title>DEEPAK KUMAR MISHRA | AI/ML Engineer & Senior Full-Stack Developer</title>
-  <meta content="Portfolio of Deepak Kumar Mishra - AI/ML Engineer, Senior Full-Stack Developer" name="description">
-  <meta content="Deepak Kumar Mishra, AI Engineer, ML Engineer, Agentic AI, LLM, FastAPI, Python, CodeIgniter, DigiLocker" name="keywords">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" />
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg-dark: #0b0f19;
-      --bg-card: #111827;
-      --bg-card-hover: #1f2937;
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-      --accent-cyan: #00d4ff;
-      --accent-blue: #38bdf8;
-      --border-line: #1e293b;
-    }
-
-    [data-theme="light"] {
-      --bg-dark: #f8fafc;
-      --bg-card: #ffffff;
-      --bg-card-hover: #f1f5f9;
-      --text-main: #0f172a;
-      --text-muted: #64748b;
-      --accent-cyan: #0284c7;
-      --accent-blue: #0ea5e9;
-      --border-line: #e2e8f0;
-    }
-
-    /* Core Reset */
-    html, body {
-      background-color: var(--bg-dark) !important;
-      color: var(--text-main) !important;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      overflow-x: hidden;
-      margin: 0;
-      padding: 0;
-    }
-
-    /* Theme Switcher */
-    .theme-selector-widget {
-      position: fixed;
-      top: 18px;
-      right: 22px;
-      z-index: 99999;
-      background: var(--bg-card);
-      border: 1px solid var(--border-line);
-      border-radius: 50px;
-      padding: 6px 14px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-    }
-    .theme-selector-widget select {
-      background: transparent;
-      border: none;
-      color: var(--text-main);
-      font-size: 0.82rem;
-      font-weight: 600;
-      outline: none;
-      cursor: pointer;
-    }
-    .theme-selector-widget select option {
-      background: #111827;
-      color: #fff;
-    }
-
-    /* CRITICAL FIX: Sidebar width offset for desktop */
-    @media (min-width: 992px) {
-      #header {
-        width: 100px;
-        position: fixed;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        z-index: 997;
-        background: #070a12 !important;
-        border-right: 1px solid var(--border-line);
-      }
-      #hero, #main, #footer {
-        margin-left: 100px !important; /* Ye sidebar overlap ko theek karta hai */
-      }
-    }
-
-    /* Hero Section Fix */
-    #hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 80px 20px 60px 40px !important;
-      background: radial-gradient(circle at 80% 20%, rgba(0, 212, 255, 0.12) 0%, transparent 40%),
-                  radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.12) 0%, transparent 40%),
-                  var(--bg-dark) !important;
-      position: relative;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 16px;
-      border-radius: 9999px;
-      background: rgba(0, 212, 255, 0.08);
-      border: 1px solid rgba(0, 212, 255, 0.35);
-      color: var(--accent-cyan);
-      font-size: 0.82rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 1.25rem;
-    }
-    .pulse-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #10b981;
-      box-shadow: 0 0 10px #10b981;
-      display: inline-block;
-    }
-
-    .hero-title {
-      font-size: clamp(2.3rem, 4.2vw, 3.8rem);
-      font-weight: 800;
-      line-height: 1.15;
-      letter-spacing: -1px;
-      margin-bottom: 1.2rem;
-      color: var(--text-main);
-    }
-    .text-gradient {
-      background: linear-gradient(135deg, #ffffff 15%, var(--accent-cyan) 60%, #818cf8 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      display: inline-block;
-    }
-    [data-theme="light"] .text-gradient {
-      background: linear-gradient(135deg, #0f172a 15%, #0284c7 60%, #4338ca 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero-description {
-      font-size: clamp(1rem, 1.35vw, 1.2rem);
-      color: var(--text-muted);
-      line-height: 1.68;
-      max-width: 640px;
-    }
-    .hero-description .typed {
-      color: var(--accent-cyan);
-      font-weight: 600;
-      border-bottom: 2px solid var(--accent-cyan);
-    }
-
-    /* Buttons */
-    .hero-btn-primary {
-      background: linear-gradient(135deg, #00d4ff 0%, #0284c7 100%);
-      color: #070a12 !important;
-      font-weight: 700;
-      padding: 12px 24px;
-      border-radius: 8px;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 4px 18px rgba(0, 212, 255, 0.35);
-      transition: all 0.25s ease;
-    }
-    .hero-btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0, 212, 255, 0.55);
-    }
-
-    .hero-btn-secondary {
-      background: var(--bg-card);
-      color: var(--text-main) !important;
-      border: 1px solid var(--border-line);
-      font-weight: 600;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.25s ease;
-    }
-    .hero-btn-secondary:hover {
-      border-color: var(--accent-cyan);
-      color: var(--accent-cyan) !important;
-      transform: translateY(-2px);
-    }
-
-    .social-btn {
-      width: 42px;
-      height: 42px;
-      border-radius: 8px;
-      background: var(--bg-card);
-      border: 1px solid var(--border-line);
-      color: var(--text-muted);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.25rem;
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
-    .social-btn:hover {
-      border-color: var(--accent-cyan);
-      color: var(--accent-cyan);
-      transform: translateY(-2px);
-    }
-
-    .hero-stats-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      margin-top: 2.2rem;
-      padding-top: 1.8rem;
-      border-top: 1px solid var(--border-line);
-    }
-    .stat-item h3 {
-      font-size: 1.85rem;
-      font-weight: 800;
-      color: var(--accent-cyan);
-      margin-bottom: 2px;
-      font-family: 'JetBrains Mono', monospace;
-    }
-    .stat-item p {
-      font-size: 0.76rem;
-      color: var(--text-muted);
-      margin: 0;
-      text-transform: uppercase;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-    }
-
-    /* Terminal Box */
-    .code-terminal-card {
-      background: rgba(14, 20, 36, 0.95);
-      border: 1px solid rgba(0, 212, 255, 0.25);
-      border-radius: 12px;
-      box-shadow: 0 20px 45px rgba(0,0,0,0.6);
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.82rem;
-      overflow: hidden;
-    }
-    .terminal-header {
-      background: #090d16;
-      padding: 11px 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      border-bottom: 1px solid var(--border-line);
-    }
-    .terminal-dot { width: 10px; height: 10px; border-radius: 50%; }
-    .dot-red { background: #ef4444; }
-    .dot-yellow { background: #f59e0b; }
-    .dot-green { background: #10b981; }
-    .terminal-title { color: var(--text-muted); font-size: 0.75rem; margin-left: 6px; }
-    .terminal-body { padding: 20px; color: #94a3b8; line-height: 1.65; }
-    .keyword { color: #f43f5e; font-weight: 600; }
-    .fn { color: var(--accent-cyan); }
-    .string { color: #34d399; }
-    .comment { color: #64748b; font-style: italic; }
-
-    /* General Sections */
-    section {
-      padding: 80px 20px !important;
-      background-color: var(--bg-dark) !important;
-    }
-    .section-bg {
-      background-color: #0e1424 !important;
-    }
-    .section-title h2 {
-      color: var(--text-main) !important;
-      font-weight: 800;
-    }
-    .section-title h2::after {
-      background: var(--accent-cyan) !important;
-    }
-    .section-title p {
-      color: var(--text-muted) !important;
-    }
-
-    /* Cards */
-    .about-photo-card, .skill-card, .project-card, .icon-box, .contact-card {
-      background: var(--bg-card) !important;
-      border: 1px solid var(--border-line) !important;
-      border-radius: 12px;
-      transition: all 0.25s ease;
-    }
-    .skill-card:hover, .project-card:hover, .icon-box:hover, .contact-card:hover {
-      border-color: var(--accent-cyan) !important;
-      transform: translateY(-3px);
-    }
-
-    .about-photo-card {
-      padding: 8px;
-      position: relative;
-    }
-    .about-photo-card img {
-      width: 100%;
-      height: 420px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-    .photo-caption-badge {
-      position: absolute;
-      bottom: 20px;
-      left: 20px;
-      right: 20px;
-      background: rgba(11, 15, 25, 0.9);
-      padding: 8px 14px;
-      border-radius: 6px;
-      display: flex;
-      justify-content: space-between;
-      border: 1px solid var(--border-line);
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.78rem;
-      color: var(--accent-cyan);
-    }
-
-    .about-card-feature {
-      background: var(--bg-card);
-      border: 1px solid var(--border-line);
-      border-radius: 10px;
-      padding: 1.25rem;
-      height: 100%;
-    }
-    .about-card-feature i {
-      font-size: 1.8rem;
-      color: var(--accent-cyan);
-      margin-bottom: 0.5rem;
-      display: inline-block;
-    }
-    .about-card-feature h5 {
-      color: var(--text-main);
-      font-size: 1rem;
-      font-weight: 700;
-    }
-    .about-card-feature p {
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      margin: 0;
-    }
-
-    .about-meta-tag {
-      background: var(--bg-card);
-      border: 1px solid var(--border-line);
-      padding: 10px 14px;
-      border-radius: 8px;
-      margin-bottom: 8px;
-    }
-    .about-meta-tag span {
-      display: block;
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-    }
-    .about-meta-tag strong {
-      color: var(--text-main);
-      font-size: 0.95rem;
-    }
-
-    .skill-badge {
-      display: inline-block;
-      background: #172033;
-      color: var(--text-main);
-      font-size: 0.82rem;
-      padding: 0.35rem 0.75rem;
-      border-radius: 6px;
-      margin: 0.2rem;
-      border: 1px solid var(--border-line);
-    }
-    .badge-highlight {
-      background: rgba(0, 212, 255, 0.12);
-      color: var(--accent-cyan);
-      border-color: var(--accent-cyan);
-      font-weight: 600;
-    }
-
-    .resume .resume-title { color: var(--accent-cyan); }
-    .resume .resume-item { border-left: 2px solid var(--border-line); }
-    .resume .resume-item::before { border-color: var(--accent-cyan); background: var(--bg-dark); }
-    .resume .resume-item h4 { color: var(--text-main); }
-    .resume .resume-item h5 { background: #172033; color: var(--accent-cyan); }
-    .resume .resume-item p, .resume .resume-item ul li { color: var(--text-muted); }
-
-    #footer {
-      background: #070a12 !important;
-      border-top: 1px solid var(--border-line) !important;
-      color: var(--text-muted);
-    }
-  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="icon" href="assets/img/favicon.png" />
 </head>
-
 <body>
 
-  <!-- Theme Selector -->
-  <div class="theme-selector-widget">
-    <i class="bi bi-palette" style="color: var(--accent-cyan);"></i>
-    <select id="themeSelect" onchange="changeTheme(this.value)">
-      <option value="dark">Cyber Slate (Dark)</option>
-      <option value="light">Clean Tech (Light)</option>
-    </select>
-  </div>
+  <!-- ─── Noise overlay ─── -->
+  <div class="noise"></div>
 
-  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+  <!-- ─── Ambient orbs ─── -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
 
-  <!-- Sidebar Navigation -->
-  <header id="header" class="d-flex flex-column justify-content-center">
-    <nav id="navbar" class="navbar nav-menu">
-      <ul>
-        <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
-        <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
-        <li><a href="#skills" class="nav-link scrollto"><i class="bx bx-chip"></i> <span>Skills</span></a></li>
-        <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Experience</span></a></li>
-        <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-code-block"></i> <span>Projects</span></a></li>
-        <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Domains</span></a></li>
-        <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- ======= Hero Section ======= -->
-  <section id="hero">
-    <div class="container-fluid" data-aos="fade-up">
-      <div class="row align-items-center g-4">
-        
-        <!-- Left Content -->
-        <div class="col-lg-7">
-          <div class="hero-badge">
-            <span class="pulse-dot"></span> Available for AI Engineering & Enterprise Systems
-          </div>
-
-          <h1 class="hero-title">
-            Hi, I'm <br>
-            <span class="text-gradient">DEEPAK KUMAR MISHRA</span>
-          </h1>
-
-          <p class="hero-description">
-            AI/ML Engineer & Senior Full-Stack Developer with 10+ years of battle-tested experience engineering national API platforms, sovereign local models, and context-aware 
-            <span class="typed" data-typed-items="Agentic AI Workflows, Private Ollama / Llama 3.1 Pipelines, Enterprise DigiLocker APIs, Robust Vector RAG Systems"></span>
-          </p>
-
-          <div class="d-flex flex-wrap gap-3 mt-4">
-            <a href="#portfolio" class="hero-btn-primary">
-              <i class="bx bx-code-block"></i> Explore Work
-            </a>
-            <a href="assets/resume/DKM.pdf" target="_blank" class="hero-btn-secondary">
-              <i class="bx bx-file"></i> View Resume
-            </a>
-            <a href="#contact" class="hero-btn-secondary">
-              <i class="bx bx-paper-plane"></i> Get In Touch
-            </a>
-          </div>
-
-          <!-- Social Links -->
-          <div class="d-flex gap-2 mt-4">
-            <a href="https://linkedin.com/in/odeepakmishra" target="_blank" class="social-btn" title="LinkedIn"><i class="bx bxl-linkedin"></i></a>
-            <a href="https://github.com/odeepak" target="_blank" class="social-btn" title="GitHub"><i class="bx bxl-github"></i></a>
-            <a href="https://wa.me/918294568917" target="_blank" class="social-btn" title="WhatsApp"><i class="bx bxl-whatsapp"></i></a>
-            <a href="mailto:odeepakmishra@gmail.com" class="social-btn" title="Email"><i class="bx bx-envelope"></i></a>
-          </div>
-
-          <!-- Stats -->
-          <div class="hero-stats-row">
-            <div class="stat-item">
-              <h3>10+</h3>
-              <p>Years Experience</p>
-            </div>
-            <div class="stat-item">
-              <h3>Millions</h3>
-              <p>Verified Records (NAD)</p>
-            </div>
-            <div class="stat-item">
-              <h3>Sovereign</h3>
-              <p>Local Ollama & RAG</p>
-            </div>
-            <div class="stat-item">
-              <h3>100%</h3>
-              <p>Production Focused</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right Terminal -->
-        <div class="col-lg-5 d-none d-lg-block">
-          <div class="code-terminal-card">
-            <div class="terminal-header">
-              <span class="terminal-dot dot-red"></span>
-              <span class="terminal-dot dot-yellow"></span>
-              <span class="terminal-dot dot-green"></span>
-              <span class="terminal-title">deepak_profile.py</span>
-            </div>
-            <div class="terminal-body">
-              <span class="comment"># Sovereign AI & Enterprise Systems</span><br>
-              <span class="keyword">class</span> <span class="fn">EngineerProfile</span>:<br>
-              &nbsp;&nbsp;name = <span class="string">"Deepak Kumar Mishra"</span><br>
-              &nbsp;&nbsp;role = <span class="string">"AI/ML Engineer & Backend Architect"</span><br>
-              &nbsp;&nbsp;exp = <span class="string">"10+ Years Enterprise"</span><br><br>
-
-              &nbsp;&nbsp;<span class="keyword">def</span> <span class="fn">current_stack</span>(self):<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> {<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"agentic_ai"</span>: [<span class="string">"LangGraph"</span>, <span class="string">"MCP"</span>, <span class="string">"Guardrails"</span>],<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"sovereign_llm"</span>: [<span class="string">"Ollama"</span>, <span class="string">"Llama 3.1"</span>, <span class="string">"ChromaDB"</span>],<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"national_apis"</span>: [<span class="string">"FastAPI"</span>, <span class="string">"DigiLocker"</span>, <span class="string">"NAD"</span>]<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
-              <span class="comment">&gt;&gt;&gt; profile.verify_ready()</span><br>
-              <span class="fn">[OK] 99.9% High Availability | Zero Data Leakage</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
+  <!-- ═══════════════════════════════════════
+       SIDEBAR NAV
+  ════════════════════════════════════════ -->
+  <nav id="sidebar">
+    <div class="sidebar-logo">
+      <span class="logo-text">DKM</span>
+      <span class="logo-dot"></span>
     </div>
-  </section>
 
+    <ul class="nav-links">
+      <li><a href="#hero"       class="nav-link active" data-section="hero">
+        <i class="bi bi-house-door"></i><span>Home</span></a></li>
+      <li><a href="#about"      class="nav-link" data-section="about">
+        <i class="bi bi-person"></i><span>About</span></a></li>
+      <li><a href="#skills"     class="nav-link" data-section="skills">
+        <i class="bi bi-cpu"></i><span>Skills</span></a></li>
+      <li><a href="#experience" class="nav-link" data-section="experience">
+        <i class="bi bi-briefcase"></i><span>Experience</span></a></li>
+      <li><a href="#projects"   class="nav-link" data-section="projects">
+        <i class="bi bi-grid"></i><span>Projects</span></a></li>
+      <li><a href="#contact"    class="nav-link" data-section="contact">
+        <i class="bi bi-envelope"></i><span>Contact</span></a></li>
+    </ul>
+
+    <div class="sidebar-social">
+      <a href="mailto:odeepakmishra@gmail.com" title="Email"><i class="bi bi-envelope-fill"></i></a>
+      <a href="https://linkedin.com" target="_blank" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+      <a href="https://github.com" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
+    </div>
+  </nav>
+
+  <!-- Mobile toggle -->
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+    <i class="bi bi-list"></i>
+  </button>
+
+  <!-- ═══════════════════════════════════════
+       MAIN CONTENT
+  ════════════════════════════════════════ -->
   <main id="main">
 
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-      <div class="container-fluid" data-aos="fade-up">
+    <!-- ─── HERO ─── -->
+    <section id="hero">
+      <div class="hero-grid">
 
-        <div class="section-title">
-          <h2>About Me</h2>
-          <p>Bridging 10+ years of battle-tested enterprise backend engineering with state-of-the-art Agentic AI.</p>
+        <!-- Left: text content -->
+        <div class="hero-content" data-aos="fade-right">
+          <div class="hero-badge">
+            <span class="badge-dot"></span>
+            Available for AI Engineering &amp; Enterprise Systems
+          </div>
+
+          <div class="hero-greeting">Hi, I'm</div>
+          <h1 class="hero-name">DEEPAK<br/><span class="name-accent">KUMAR MISHRA</span></h1>
+
+          <p class="hero-tagline">
+            AI/ML Engineer &amp; Senior Full-Stack Developer with
+            <strong>10+ years</strong> of battle-tested experience engineering
+            national API platforms, sovereign local models, and context-aware
+            <span class="typed-wrapper"><span id="typed"></span></span>
+          </p>
+
+          <div class="hero-cta">
+            <a href="#projects" class="btn btn-primary">
+              <i class="bi bi-grid-3x3-gap"></i> Explore Work
+            </a>
+            <a href="assets/resume/DKM.pdf" target="_blank" class="btn btn-outline">
+              <i class="bi bi-file-earmark-person"></i> View Resume
+            </a>
+            <a href="#contact" class="btn btn-ghost">
+              <i class="bi bi-send"></i> Get In Touch
+            </a>
+          </div>
+
+          <div class="hero-social">
+            <a href="mailto:odeepakmishra@gmail.com"><i class="bi bi-envelope"></i></a>
+            <a href="https://linkedin.com" target="_blank"><i class="bi bi-linkedin"></i></a>
+            <a href="https://github.com" target="_blank"><i class="bi bi-github"></i></a>
+            <a href="https://wa.me/918294568917" target="_blank"><i class="bi bi-whatsapp"></i></a>
+          </div>
         </div>
 
-        <div class="row align-items-center g-4">
-          <div class="col-lg-4 text-center">
-            <div class="about-photo-card mb-3">
-              <img src="assets/img/profile-img.jpg" alt="Deepak Kumar Mishra">
-              <div class="photo-caption-badge">
-                <span>&lt;Senior Architect /&gt;</span>
-                <span>10+ Yrs Exp</span>
+        <!-- Right: code terminal card -->
+        <div class="hero-terminal" data-aos="fade-left">
+          <div class="terminal-header">
+            <span class="t-dot red"></span>
+            <span class="t-dot yellow"></span>
+            <span class="t-dot green"></span>
+            <span class="t-filename">deepak_profile.py</span>
+          </div>
+          <div class="terminal-body">
+            <pre><code><span class="c"># Sovereign AI &amp; Enterprise Systems</span>
+
+<span class="kw">class</span> <span class="cn">EngineerProfile</span>:
+
+  name  <span class="op">=</span> <span class="str">"Deepak Kumar Mishra"</span>
+  role  <span class="op">=</span> <span class="str">"AI/ML Engineer &amp; Architect"</span>
+  exp   <span class="op">=</span> <span class="str">"10+ Years Enterprise"</span>
+
+  <span class="kw">def</span> <span class="fn">current_stack</span>(self):
+    <span class="kw">return</span> {
+      <span class="str">"agentic_ai"</span>:    [<span class="str">"LangGraph"</span>, <span class="str">"MCP"</span>, <span class="str">"Guardrails"</span>],
+      <span class="str">"sovereign_llm"</span>: [<span class="str">"Ollama"</span>, <span class="str">"Llama 3.1"</span>, <span class="str">"ChromaDB"</span>],
+      <span class="str">"national_apis"</span>: [<span class="str">"FastAPI"</span>, <span class="str">"DigiLocker"</span>, <span class="str">"NAD"</span>]
+    }
+
+<span class="prompt">&gt;&gt;&gt;</span> profile.verify_ready()
+<span class="ok">[OK]</span> 99.9% High Availability | Zero Data Leakage</code></pre>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Stats bar -->
+      <div class="hero-stats" data-aos="fade-up">
+        <div class="stat">
+          <span class="stat-value">10+</span>
+          <span class="stat-label">Years Experience</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-value">Millions</span>
+          <span class="stat-label">Verified Records (NAD)</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-value">Sovereign</span>
+          <span class="stat-label">Local Ollama &amp; RAG</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-value">100%</span>
+          <span class="stat-label">Production Focused</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── ABOUT ─── -->
+    <section id="about">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-label">01 / About</span>
+        <h2 class="section-title">About Me</h2>
+        <p class="section-subtitle">Bridging 10+ years of battle-tested enterprise backend engineering with state-of-the-art Agentic AI.</p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-image-col" data-aos="fade-right">
+          <div class="profile-card">
+            <img src="assets/img/profile-img.jpg" alt="Deepak Kumar Mishra" class="profile-img" />
+            <div class="profile-badge-chip">
+              <i class="bi bi-code-slash"></i>
+              &lt;Senior Architect /&gt; · 10+ Yrs Exp
+            </div>
+          </div>
+
+          <div class="about-meta-grid">
+            <div class="meta-card">
+              <span class="meta-value">10+</span>
+              <span class="meta-key">Years Experience</span>
+            </div>
+            <div class="meta-card">
+              <span class="meta-value">MCA</span>
+              <span class="meta-key">Postgraduate</span>
+            </div>
+            <div class="meta-card">
+              <span class="meta-value">BCA</span>
+              <span class="meta-key">Graduate</span>
+            </div>
+            <div class="meta-card">
+              <span class="meta-value">AI</span>
+              <span class="meta-key">Specialization</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-text-col" data-aos="fade-left">
+          <h3 class="about-heading">Enterprise Full-Stack Maturity<br/><span class="accent">Meets Autonomous AI Reasoning.</span></h3>
+
+          <p>I am an AI/ML Engineer and Senior Application Architect with over a decade of core software engineering experience. I specialize in designing fault-tolerant, high-concurrency systems, verified institutional identity infrastructures, and intelligent automation pipelines.</p>
+
+          <p>From delivering critical government digital platforms like the <strong>National Academic Depository (NAD)</strong> under DigiLocker to private enterprise architectures, I build high-throughput endpoints handling millions of verification requests. Today, I combine this deep backend maturity with <strong>Agentic AI, Model Context Protocol (MCP), and Sovereign Local LLMs (Ollama/Llama 3.1)</strong>.</p>
+
+          <div class="about-highlights">
+            <div class="highlight-card">
+              <div class="hc-icon"><i class="bi bi-robot"></i></div>
+              <div>
+                <strong>Autonomous Agents</strong>
+                <p>Multi-agent loops using LangGraph, MCP tools, and deterministic safety guardrails.</p>
               </div>
             </div>
-            
-            <div class="row g-2 text-start">
-              <div class="col-6">
-                <div class="about-meta-tag">
-                  <span>Experience</span>
-                  <strong>10+ Years</strong>
-                </div>
+            <div class="highlight-card">
+              <div class="hc-icon"><i class="bi bi-lightning-charge"></i></div>
+              <div>
+                <strong>High-Scale APIs</strong>
+                <p>FastAPI &amp; PHP CodeIgniter microservices built for zero data loss and sub-second responses.</p>
               </div>
-              <div class="col-6">
-                <div class="about-meta-tag">
-                  <span>Degrees</span>
-                  <strong>MCA, BCA</strong>
-                </div>
-              </div>
-              <div class="col-12">
-                <div class="about-meta-tag">
-                  <span>Specialization</span>
-                  <strong>Agentic AI & Full-Stack Systems</strong>
-                </div>
+            </div>
+            <div class="highlight-card">
+              <div class="hc-icon"><i class="bi bi-shield-lock"></i></div>
+              <div>
+                <strong>Sovereign AI Stack</strong>
+                <p>Local offline models with ChromaDB vector search running in private containerized infrastructure.</p>
               </div>
             </div>
           </div>
 
-          <div class="col-lg-8">
-            <h3 style="font-weight: 800; font-size: 1.8rem; color: var(--text-main); margin-bottom: 1rem;">
-              Enterprise Full-Stack Maturity Meets Autonomous AI Reasoning.
-            </h3>
-
-            <p style="font-size: 1rem; line-height: 1.7; color: var(--text-muted);">
-              I am an <strong>AI/ML Engineer and Senior Application Architect</strong> with over a decade of core software engineering experience. I specialize in designing fault-tolerant, high-concurrency systems, verified institutional identity infrastructures, and intelligent automation pipelines.
-            </p>
-            <p style="font-size: 1rem; line-height: 1.7; color: var(--text-muted);">
-              From delivering critical government digital platforms like the <strong>National Academic Depository (NAD) under DigiLocker</strong> to private enterprise architectures, I build high-throughput endpoints handling millions of verification requests. Today, I combine this deep backend maturity with <strong>Agentic AI, Model Context Protocol (MCP), and Sovereign Local LLMs (Ollama/Llama 3.1)</strong>.
-            </p>
-
-            <div class="row g-3 mt-3">
-              <div class="col-md-4">
-                <div class="about-card-feature">
-                  <i class="bx bx-brain"></i>
-                  <h5>Autonomous Agents</h5>
-                  <p>Multi-agent loops using LangGraph, MCP tools, and deterministic safety guardrails.</p>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="about-card-feature">
-                  <i class="bx bx-server"></i>
-                  <h5>High-Scale APIs</h5>
-                  <p>FastAPI & PHP CodeIgniter microservices built for zero data loss and sub-second responses.</p>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="about-card-feature">
-                  <i class="bx bx-lock-alt"></i>
-                  <h5>Sovereign AI Stack</h5>
-                  <p>Local offline models with ChromaDB vector search running in private containerized infrastructure.</p>
-                </div>
-              </div>
+          <div class="about-contact-row">
+            <div class="ac-item">
+              <span class="ac-label">Location</span>
+              <span>Gopalganj, Bihar / Remote</span>
             </div>
-
-            <div class="d-flex flex-wrap gap-4 mt-4 pt-3 border-top" style="border-color: var(--border-line) !important;">
-              <div>
-                <span class="text-secondary small d-block">LOCATION</span>
-                <strong style="color: var(--text-main);">Gopalganj, Bihar / Remote</strong>
-              </div>
-              <div>
-                <span class="text-secondary small d-block">PRIMARY CONTACT</span>
-                <a href="mailto:odeepakmishra@gmail.com" class="text-decoration-none fw-bold" style="color: var(--accent-cyan);">odeepakmishra@gmail.com</a>
-              </div>
-              <div>
-                <span class="text-secondary small d-block">WHATSAPP / CALL</span>
-                <strong style="color: var(--text-main);">+91 8294568917</strong>
-              </div>
+            <div class="ac-item">
+              <span class="ac-label">Email</span>
+              <span>odeepakmishra@gmail.com</span>
             </div>
+            <div class="ac-item">
+              <span class="ac-label">WhatsApp</span>
+              <span>+91 8294568917</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── SKILLS ─── -->
+    <section id="skills">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-label">02 / Skills</span>
+        <h2 class="section-title">Technical Expertise</h2>
+        <p class="section-subtitle">Frameworks, toolkits, architectures, and infrastructure I leverage in production.</p>
+      </div>
+
+      <div class="skills-grid">
+
+        <div class="skill-domain" data-aos="fade-up" data-aos-delay="0">
+          <div class="sd-header">
+            <div class="sd-icon"><i class="bi bi-robot"></i></div>
+            <h3>AI &amp; LLM Systems</h3>
+          </div>
+          <div class="skill-tags">
+            <span>Agentic AI Workflows</span>
+            <span>Model Context Protocol (MCP)</span>
+            <span>AI Security Guardrails</span>
+            <span>LangChain</span>
+            <span>LangGraph</span>
+            <span>Ollama / Llama 3.1</span>
+            <span>RAG Systems</span>
+            <span>ChromaDB</span>
+            <span>n8n Automation</span>
+          </div>
+        </div>
+
+        <div class="skill-domain" data-aos="fade-up" data-aos-delay="100">
+          <div class="sd-header">
+            <div class="sd-icon purple"><i class="bi bi-graph-up-arrow"></i></div>
+            <h3>ML &amp; Data Science</h3>
+          </div>
+          <div class="skill-tags purple">
+            <span>Python (Pandas, NumPy)</span>
+            <span>Scikit-learn</span>
+            <span>TensorFlow</span>
+            <span>Keras</span>
+            <span>ANN &amp; Deep Learning</span>
+            <span>NLP Pipelines</span>
+            <span>Power BI</span>
+          </div>
+        </div>
+
+        <div class="skill-domain" data-aos="fade-up" data-aos-delay="200">
+          <div class="sd-header">
+            <div class="sd-icon green"><i class="bi bi-server"></i></div>
+            <h3>Backend &amp; API Architecture</h3>
+          </div>
+          <div class="skill-tags green">
+            <span>Python (FastAPI)</span>
+            <span>PHP / CodeIgniter 3 &amp; 4</span>
+            <span>RESTful API Design</span>
+            <span>DigiLocker / NAD Protocol</span>
+            <span>XML PullURI Services</span>
+            <span>Microservices</span>
+          </div>
+        </div>
+
+        <div class="skill-domain" data-aos="fade-up" data-aos-delay="300">
+          <div class="sd-header">
+            <div class="sd-icon orange"><i class="bi bi-database"></i></div>
+            <h3>Databases &amp; DevOps</h3>
+          </div>
+          <div class="skill-tags orange">
+            <span>MongoDB</span>
+            <span>MySQL / SQL</span>
+            <span>Redis Cache</span>
+            <span>Elasticsearch</span>
+            <span>MinIO Object Storage</span>
+            <span>Docker &amp; Docker Compose</span>
+            <span>Git / Git LFS</span>
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- ======= Skills Section ======= -->
-    <section id="skills" class="skills section-bg">
-      <div class="container-fluid" data-aos="fade-up">
+    <!-- ─── EXPERIENCE ─── -->
+    <section id="experience">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-label">03 / Experience</span>
+        <h2 class="section-title">Professional Experience</h2>
+        <p class="section-subtitle">Track record in deploying large-scale public sector and enterprise platforms.</p>
+      </div>
 
-        <div class="section-title">
-          <h2>Technical Expertise</h2>
-          <p>Frameworks, toolkits, architectures, and infrastructure I leverage in production.</p>
+      <div class="timeline">
+
+        <div class="tl-item" data-aos="fade-up">
+          <div class="tl-marker">
+            <div class="tl-dot"></div>
+            <div class="tl-line"></div>
+          </div>
+          <div class="tl-card">
+            <div class="tl-card-header">
+              <div>
+                <span class="tl-badge">Current</span>
+                <h3>Senior Technical Consultant — National Academic Depository (NAD)</h3>
+                <div class="tl-meta">
+                  <span><i class="bi bi-calendar3"></i> 2022 – Present</span>
+                  <span><i class="bi bi-building"></i> Digital India Corporation (MeitY &amp; MoE), New Delhi</span>
+                </div>
+              </div>
+            </div>
+            <ul>
+              <li>Architected high-concurrency API integrations for the national academic depository.</li>
+              <li>Engineered core PullURIRequest XML/JSON handlers, Base64 hash key derivation, and MongoDB document fallback verification engines.</li>
+              <li>Enabled seamless issuance and instant verification of digital degrees and marksheets nationwide.</li>
+            </ul>
+          </div>
         </div>
 
-        <div class="row g-4">
-          <div class="col-lg-6">
-            <div class="skill-card p-4">
-              <h5 class="fw-bold mb-3"><i class="bx bx-brain me-2" style="color: var(--accent-cyan);"></i> AI & LLM Systems</h5>
-              <div>
-                <span class="skill-badge badge-highlight">Agentic AI Workflows</span>
-                <span class="skill-badge badge-highlight">Model Context Protocol (MCP)</span>
-                <span class="skill-badge badge-highlight">AI Security Guardrails</span>
-                <span class="skill-badge">LangChain</span>
-                <span class="skill-badge">LangGraph</span>
-                <span class="skill-badge">Ollama / Llama 3.1</span>
-                <span class="skill-badge">RAG Systems</span>
-                <span class="skill-badge">ChromaDB</span>
-                <span class="skill-badge">n8n Automation</span>
-              </div>
-            </div>
+        <div class="tl-item" data-aos="fade-up" data-aos-delay="100">
+          <div class="tl-marker">
+            <div class="tl-dot"></div>
+            <div class="tl-line"></div>
           </div>
-
-          <div class="col-lg-6">
-            <div class="skill-card p-4">
-              <h5 class="fw-bold mb-3"><i class="bx bx-data me-2" style="color: var(--accent-cyan);"></i> ML & Data Science</h5>
+          <div class="tl-card">
+            <div class="tl-card-header">
               <div>
-                <span class="skill-badge">Python (Pandas, NumPy)</span>
-                <span class="skill-badge">Scikit-learn</span>
-                <span class="skill-badge">TensorFlow</span>
-                <span class="skill-badge">Keras</span>
-                <span class="skill-badge">ANN & Deep Learning</span>
-                <span class="skill-badge">NLP Pipelines</span>
-                <span class="skill-badge">Power BI</span>
+                <span class="tl-badge">Current</span>
+                <h3>Core Platform Developer — OpenForge Project</h3>
+                <div class="tl-meta">
+                  <span><i class="bi bi-calendar3"></i> 2022 – Present</span>
+                  <span><i class="bi bi-building"></i> Digital India Corporation (MeitY), New Delhi</span>
+                </div>
               </div>
             </div>
+            <ul>
+              <li>Contributed to India's collaborative open-source platform for e-Governance applications.</li>
+              <li>Promoted cross-department code-sharing modules, automated repository management, and security governance.</li>
+            </ul>
           </div>
+        </div>
 
-          <div class="col-lg-6">
-            <div class="skill-card p-4">
-              <h5 class="fw-bold mb-3"><i class="bx bx-server me-2" style="color: var(--accent-cyan);"></i> Backend & API Architecture</h5>
-              <div>
-                <span class="skill-badge badge-highlight">Python (FastAPI)</span>
-                <span class="skill-badge badge-highlight">PHP / CodeIgniter 3 HMVC & 4</span>
-                <span class="skill-badge">RESTful API Design</span>
-                <span class="skill-badge">DigiLocker / NAD Protocol</span>
-                <span class="skill-badge">XML PullURI Services</span>
-                <span class="skill-badge">Microservices</span>
-              </div>
-            </div>
+        <div class="tl-item" data-aos="fade-up" data-aos-delay="200">
+          <div class="tl-marker">
+            <div class="tl-dot"></div>
           </div>
-
-          <div class="col-lg-6">
-            <div class="skill-card p-4">
-              <h5 class="fw-bold mb-3"><i class="bx bx-layer me-2" style="color: var(--accent-cyan);"></i> Databases & DevOps</h5>
+          <div class="tl-card">
+            <div class="tl-card-header">
               <div>
-                <span class="skill-badge">MongoDB</span>
-                <span class="skill-badge">MySQL / SQL</span>
-                <span class="skill-badge">Redis Cache</span>
-                <span class="skill-badge">Elasticsearch</span>
-                <span class="skill-badge">MinIO Object Storage</span>
-                <span class="skill-badge">Docker & Docker Compose</span>
-                <span class="skill-badge">Git / Git LFS</span>
+                <span class="tl-badge past">2020–2021</span>
+                <h3>Senior Web Developer — Just Visit Online Pvt. Ltd.</h3>
+                <div class="tl-meta">
+                  <span><i class="bi bi-calendar3"></i> 2020 – 2021</span>
+                  <span><i class="bi bi-building"></i> Patna, Bihar</span>
+                </div>
               </div>
             </div>
+            <ul>
+              <li>Built a scalable multi-category business directory platform serving merchants across India.</li>
+              <li>Implemented elastic search indexing, dynamic location filtering, and payment gateways.</li>
+            </ul>
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- ======= Resume Section ======= -->
-    <section id="resume" class="resume">
-      <div class="container-fluid" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Professional Experience</h2>
-          <p>Track record in deploying large-scale public sector and enterprise platforms.</p>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="resume-item">
-              <h4>Senior Technical Consultant — National Academic Depository (NAD)</h4>
-              <h5>2022 – Present</h5>
-              <p><em>Digital India Corporation (MeitY & MoE), New Delhi</em></p>
-              <ul>
-                <li>Architected high-concurrency API integrations for the national academic depository.</li>
-                <li>Engineered core <code>PullURIRequest</code> XML/JSON handlers, Base64 hash key derivation, and MongoDB document fallback verification engines.</li>
-                <li>Enabled seamless issuance and instant verification of digital degrees and marksheets nationwide.</li>
-              </ul>
-            </div>
-
-            <div class="resume-item">
-              <h4>Core Platform Developer — OpenForge Project</h4>
-              <h5>2022 – Present</h5>
-              <p><em>Digital India Corporation (MeitY), New Delhi</em></p>
-              <ul>
-                <li>Contributed to India's collaborative open-source platform for e-Governance applications.</li>
-                <li>Promoted cross-department code-sharing modules, automated repository management, and security governance.</li>
-              </ul>
-            </div>
-
-            <div class="resume-item">
-              <h4>Senior Web Developer — Just Visit Online Pvt. Ltd.</h4>
-              <h5>2020 – 2021</h5>
-              <p><em>Patna, Bihar</em></p>
-              <ul>
-                <li>Built a scalable multi-category business directory platform serving merchants across India.</li>
-                <li>Implemented elastic search indexing, dynamic location filtering, and payment gateways.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
+    <!-- ─── PROJECTS ─── -->
+    <section id="projects">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-label">04 / Projects</span>
+        <h2 class="section-title">Featured Work</h2>
+        <p class="section-subtitle">Key production enterprise platforms and AI architectures.</p>
       </div>
-    </section>
 
-    <!-- ======= Portfolio Section ======= -->
-    <section id="portfolio" class="portfolio section-bg">
-      <div class="container-fluid" data-aos="fade-up">
+      <div class="projects-grid">
 
-        <div class="section-title">
-          <h2>Featured Work</h2>
-          <p>Key production enterprise platforms and AI architectures.</p>
-        </div>
-
-        <div class="row g-4">
-          <div class="col-lg-4 col-md-6">
-            <div class="project-card h-100 p-4 d-flex flex-column">
-              <span class="badge mb-2 align-self-start" style="background: #0284c7;">GovTech</span>
-              <h5 class="fw-bold mb-2">National Academic Depository (NAD)</h5>
-              <p class="small text-muted flex-grow-1">High-capacity verification engine integrated into DigiLocker.</p>
-              <a href="https://nad.digilocker.gov.in/" target="_blank" class="hero-btn-secondary py-2 px-3 mt-3 text-center justify-content-center">View Live Platform <i class="bx bx-link-external"></i></a>
-            </div>
+        <div class="project-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="pc-glow cyan"></div>
+          <div class="pc-tag">GovTech</div>
+          <div class="pc-icon"><i class="bi bi-shield-check"></i></div>
+          <h3>National Academic Depository (NAD)</h3>
+          <p>High-capacity verification engine integrated into DigiLocker. Handles millions of degree &amp; marksheet verifications across India.</p>
+          <div class="pc-tech">
+            <span>FastAPI</span><span>MongoDB</span><span>XML</span><span>DigiLocker</span>
           </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="project-card h-100 p-4 d-flex flex-column">
-              <span class="badge mb-2 align-self-start" style="background: #059669;">AI & Sovereign Stack</span>
-              <h5 class="fw-bold mb-2">Local Agentic RAG System</h5>
-              <p class="small text-muted flex-grow-1">Privacy-first local intelligent agent using Ollama (Llama 3.1), FastAPI, and ChromaDB vector search.</p>
-              <div class="mt-3"><span class="badge-highlight px-2 py-1 rounded small">Self-Hosted Production</span></div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="project-card h-100 p-4 d-flex flex-column">
-              <span class="badge mb-2 align-self-start" style="background: #4f46e5;">Enterprise</span>
-              <h5 class="fw-bold mb-2">OpenForge Platform</h5>
-              <p class="small text-muted flex-grow-1">Government platform promoting collaborative e-governance software development.</p>
-              <a href="https://openforge.gov.in/" target="_blank" class="hero-btn-secondary py-2 px-3 mt-3 text-center justify-content-center">View Live Platform <i class="bx bx-link-external"></i></a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container-fluid" data-aos="fade-up">
-
-        <div class="section-title text-center">
-          <h2>Get In Touch</h2>
-          <p>Open for architectural consulting, AI engineering, and enterprise backend roles.</p>
-        </div>
-
-        <div class="row g-4 mt-2">
-          <div class="col-lg-4 text-center">
-            <div class="contact-card p-4">
-              <i class="bi bi-geo-alt" style="color: var(--accent-cyan); font-size: 2rem;"></i>
-              <h5 class="fw-bold mt-3">Location</h5>
-              <p class="text-muted small mb-0">Mirganj, Gopalganj, Bihar - 841438<br>(Open to Remote & Hybrid)</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 text-center">
-            <div class="contact-card p-4">
-              <i class="bi bi-envelope" style="color: var(--accent-cyan); font-size: 2rem;"></i>
-              <h5 class="fw-bold mt-3">Email</h5>
-              <p class="text-muted small mb-0"><a href="mailto:odeepakmishra@gmail.com" class="text-decoration-none fw-bold" style="color: var(--accent-cyan);">odeepakmishra@gmail.com</a></p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 text-center">
-            <div class="contact-card p-4">
-              <i class="bi bi-phone" style="color: var(--accent-cyan); font-size: 2rem;"></i>
-              <h5 class="fw-bold mt-3">Phone & WhatsApp</h5>
-              <p class="text-muted small mb-0">+91 8294568917 / 7979957476</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="text-center mt-4">
-          <a href="https://wa.me/918294568917" target="_blank" class="btn btn-success px-4 py-2 me-2">
-            <i class="bx bxl-whatsapp me-1"></i> WhatsApp
+          <a href="https://nad.digilocker.gov.in" target="_blank" class="pc-link">
+            View Live Platform <i class="bi bi-arrow-up-right"></i>
           </a>
-          <a href="https://www.linkedin.com/in/odeepakmishra" target="_blank" class="hero-btn-secondary px-4 py-2">
-            <i class="bx bxl-linkedin me-1"></i> LinkedIn
+        </div>
+
+        <div class="project-card featured" data-aos="fade-up" data-aos-delay="100">
+          <div class="pc-glow purple"></div>
+          <div class="pc-tag">AI &amp; Sovereign Stack</div>
+          <div class="pc-icon"><i class="bi bi-robot"></i></div>
+          <h3>Local Agentic RAG System</h3>
+          <p>Privacy-first local intelligent agent using Ollama (Llama 3.1), FastAPI, and ChromaDB vector search. Zero cloud dependency.</p>
+          <div class="pc-tech">
+            <span>Ollama</span><span>LangGraph</span><span>ChromaDB</span><span>FastAPI</span>
+          </div>
+          <span class="pc-link self-hosted">
+            <i class="bi bi-hdd-rack"></i> Self-Hosted Production
+          </span>
+        </div>
+
+        <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="pc-glow green"></div>
+          <div class="pc-tag">Enterprise</div>
+          <div class="pc-icon"><i class="bi bi-diagram-3"></i></div>
+          <h3>OpenForge Platform</h3>
+          <p>Government platform promoting collaborative e-governance software development and cross-department code sharing.</p>
+          <div class="pc-tech">
+            <span>PHP</span><span>CodeIgniter</span><span>Git</span><span>DevOps</span>
+          </div>
+          <a href="https://openforge.gov.in" target="_blank" class="pc-link">
+            View Live Platform <i class="bi bi-arrow-up-right"></i>
           </a>
         </div>
+
+      </div>
+    </section>
+
+    <!-- ─── CONTACT ─── -->
+    <section id="contact">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-label">05 / Contact</span>
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">Open for architectural consulting, AI engineering, and enterprise backend roles.</p>
+      </div>
+
+      <div class="contact-grid">
+
+        <div class="contact-info" data-aos="fade-right">
+          <div class="ci-card">
+            <div class="ci-icon"><i class="bi bi-geo-alt"></i></div>
+            <div>
+              <h4>Location</h4>
+              <p>Mirganj, Gopalganj, Bihar – 841438<br/><em>Open to Remote &amp; Hybrid</em></p>
+            </div>
+          </div>
+          <div class="ci-card">
+            <div class="ci-icon"><i class="bi bi-envelope"></i></div>
+            <div>
+              <h4>Email</h4>
+              <p><a href="mailto:odeepakmishra@gmail.com">odeepakmishra@gmail.com</a></p>
+            </div>
+          </div>
+          <div class="ci-card">
+            <div class="ci-icon"><i class="bi bi-telephone"></i></div>
+            <div>
+              <h4>Phone &amp; WhatsApp</h4>
+              <p>+91 8294568917 / 7979957476</p>
+            </div>
+          </div>
+
+          <div class="contact-cta-row">
+            <a href="https://wa.me/918294568917" target="_blank" class="btn btn-primary">
+              <i class="bi bi-whatsapp"></i> WhatsApp
+            </a>
+            <a href="https://linkedin.com" target="_blank" class="btn btn-outline">
+              <i class="bi bi-linkedin"></i> LinkedIn
+            </a>
+          </div>
+        </div>
+
+        <form class="contact-form" data-aos="fade-left" action="forms/contact.php" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" placeholder="John Doe" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Your Email</label>
+              <input type="email" id="email" name="email" placeholder="john@example.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="AI Engineering Consultation" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">
+            <i class="bi bi-send"></i> Send Message
+          </button>
+        </form>
 
       </div>
     </section>
 
   </main>
 
-  <footer id="footer" class="py-4 text-center">
-    <div class="container-fluid">
-      <h5 class="fw-bold mb-1">DEEPAK KUMAR MISHRA</h5>
-      <p class="small text-muted mb-0">&copy; Copyright. All Rights Reserved.</p>
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════ -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">DEEPAK KUMAR MISHRA</div>
+      <p class="footer-copy">© <span id="year"></span> All Rights Reserved.</p>
     </div>
   </footer>
 
-  <div id="preloader"></div>
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <!-- Back to top -->
+  <a href="#hero" class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="bi bi-arrow-up"></i>
+  </a>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/typed.js/typed.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-
-  <!-- Template Main JS File -->
+  <!-- ─── Scripts ─── -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.16/dist/typed.umd.js"></script>
   <script src="assets/js/main.js"></script>
-
-  <script>
-    function changeTheme(themeName) {
-      if (themeName === 'light') {
-        document.documentElement.setAttribute('data-theme', 'light');
-      } else {
-        document.documentElement.removeAttribute('data-theme');
-      }
-      localStorage.setItem('preferred_theme', themeName);
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const savedTheme = localStorage.getItem('preferred_theme');
-      if (savedTheme) {
-        document.getElementById('themeSelect').value = savedTheme;
-        changeTheme(savedTheme);
-      }
-    });
-  </script>
-
 </body>
 </html>
