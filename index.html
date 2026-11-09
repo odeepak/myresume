@@ -6,8 +6,8 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>DEEPAK KUMAR MISHRA | AI/ML Engineer & Senior Full-Stack Developer</title>
-  <meta content="Portfolio of Deepak Kumar Mishra - AI/ML Engineer, Agentic AI Architect, Senior Full-Stack Developer with 10+ years experience in enterprise API design, DigiLocker/NAD, LLMs, and RAG systems." name="description">
-  <meta content="Deepak Kumar Mishra, AI Engineer, ML Engineer, Agentic AI, LLM, MCP, FastAPI, Python, CodeIgniter, DigiLocker, NAD, RAG, ChromaDB" name="keywords">
+  <meta content="Portfolio of Deepak Kumar Mishra - AI/ML Engineer, Senior Full-Stack Developer" name="description">
+  <meta content="Deepak Kumar Mishra, AI Engineer, ML Engineer, Agentic AI, LLM, FastAPI, Python, CodeIgniter, DigiLocker" name="keywords">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -29,74 +29,53 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
-  <!-- Production Theme Architecture -->
   <style>
     :root {
-      --bg-body: #0b0f19;          /* Deep cyber slate */
-      --bg-card: #111827;          /* Elevated surface dark */
-      --bg-card-hover: #1e293b;
-      --bg-subtle: #0f172a;        /* Section background */
+      --bg-dark: #0b0f19;
+      --bg-card: #111827;
+      --bg-card-hover: #1f2937;
       --text-main: #f8fafc;
-      --text-secondary: #94a3b8;
-      --accent-blue: #38bdf8;       /* Tech cyan/blue highlight */
-      --accent-glow: rgba(56, 189, 248, 0.15);
-      --border-color: #1f293d;
-      --border-color-hover: #38bdf8;
+      --text-muted: #94a3b8;
+      --accent-cyan: #00d4ff;
+      --accent-blue: #38bdf8;
+      --border-line: #1e293b;
     }
 
-    /* Light Theme Palette */
     [data-theme="light"] {
-      --bg-body: #f8fafc;
+      --bg-dark: #f8fafc;
       --bg-card: #ffffff;
       --bg-card-hover: #f1f5f9;
-      --bg-subtle: #eef2f6;
       --text-main: #0f172a;
-      --text-secondary: #64748b;
-      --accent-blue: #0284c7;
-      --accent-glow: rgba(2, 132, 199, 0.15);
-      --border-color: #cbd5e1;
-      --border-color-hover: #0284c7;
+      --text-muted: #64748b;
+      --accent-cyan: #0284c7;
+      --accent-blue: #0ea5e9;
+      --border-line: #e2e8f0;
     }
 
-    /* Emerald Obsidian Palette */
-    [data-theme="emerald"] {
-      --bg-body: #0d1117;
-      --bg-card: #161b22;
-      --bg-card-hover: #21262d;
-      --bg-subtle: #131922;
-      --text-main: #f0f6fc;
-      --text-secondary: #8b949e;
-      --accent-blue: #2ea043;
-      --accent-glow: rgba(46, 160, 67, 0.2);
-      --border-color: #30363d;
-      --border-color-hover: #2ea043;
-    }
-
-    body {
+    /* Core Reset */
+    html, body {
+      background-color: var(--bg-dark) !important;
+      color: var(--text-main) !important;
       font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: var(--bg-body) !important;
-      color: var(--text-main);
-      transition: background-color 0.3s ease, color 0.3s ease;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
     }
 
-    code, pre {
-      font-family: 'JetBrains Mono', monospace;
-    }
-
-    /* Theme Switcher Widget */
+    /* Theme Switcher */
     .theme-selector-widget {
       position: fixed;
-      top: 22px;
+      top: 18px;
       right: 22px;
       z-index: 99999;
       background: var(--bg-card);
-      border: 1px solid var(--border-color);
+      border: 1px solid var(--border-line);
       border-radius: 50px;
       padding: 6px 14px;
       display: flex;
       align-items: center;
       gap: 8px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
     }
     .theme-selector-widget select {
       background: transparent;
@@ -104,258 +83,59 @@
       color: var(--text-main);
       font-size: 0.82rem;
       font-weight: 600;
-      cursor: pointer;
       outline: none;
+      cursor: pointer;
     }
     .theme-selector-widget select option {
       background: #111827;
-      color: #ffffff;
+      color: #fff;
     }
 
-    /* Floating Navigation Menu */
-    #header {
-      background: rgba(11, 15, 25, 0.88);
-      backdrop-filter: blur(12px);
-      transition: all 0.3s ease;
-    }
-    [data-theme="light"] #header {
-      background: rgba(255, 255, 255, 0.9);
-    }
-    .nav-menu a, .nav-menu a:focus {
-      background: var(--bg-card);
-      color: var(--text-secondary);
-      border: 1px solid var(--border-color);
-    }
-    .nav-menu a:hover, .nav-menu .active, .nav-menu .active:focus, .nav-menu li:hover>a {
-      color: #ffffff;
-      background: var(--accent-blue);
-      border-color: var(--accent-blue);
-    }
-    .nav-menu a span {
-      background: var(--accent-blue);
-      color: #ffffff;
+    /* CRITICAL FIX: Sidebar width offset for desktop */
+    @media (min-width: 992px) {
+      #header {
+        width: 100px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 997;
+        background: #070a12 !important;
+        border-right: 1px solid var(--border-line);
+      }
+      #hero, #main, #footer {
+        margin-left: 100px !important; /* Ye sidebar overlap ko theek karta hai */
+      }
     }
 
-    /* Section Styling */
-    section {
-      background-color: var(--bg-body) !important;
-      color: var(--text-main);
-    }
-    .section-bg {
-      background-color: var(--bg-subtle) !important;
-    }
-    .section-title h2 {
-      color: var(--text-main) !important;
-      font-weight: 700;
-    }
-    .section-title h2::after {
-      background: var(--accent-blue) !important;
-    }
-    .section-title p {
-      color: var(--text-secondary) !important;
-    }
-
-    /* Hero Section */
+    /* Hero Section Fix */
     #hero {
-      background: radial-gradient(circle at 85% 20%, var(--accent-glow) 0%, transparent 45%),
-                  radial-gradient(circle at 15% 85%, var(--accent-glow) 0%, transparent 45%),
-                  var(--bg-body);
-    }
-    #hero h1 {
-      color: var(--text-main);
-      font-weight: 800;
-      letter-spacing: -0.5px;
-    }
-    #hero p {
-      color: var(--text-secondary);
-    }
-    #hero p span {
-      color: var(--accent-blue);
-      border-bottom: 2px solid var(--accent-blue);
-    }
-    #hero .social-links a {
-      background: var(--bg-card);
-      color: var(--text-secondary);
-      border: 1px solid var(--border-color);
-      transition: all 0.25s ease;
-    }
-    #hero .social-links a:hover {
-      background: var(--accent-blue);
-      color: #ffffff;
-      border-color: var(--accent-blue);
-    }
-
-    /* Skill Cards & Badges */
-    .skill-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 14px;
-      padding: 1.6rem;
-      margin-bottom: 1.5rem;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.25);
-    }
-    .skill-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--accent-blue);
-      box-shadow: 0 12px 25px -4px var(--accent-glow);
-    }
-    .skill-card h5 {
-      color: var(--text-main);
-    }
-    .skill-badge {
-      display: inline-block;
-      background: var(--bg-subtle);
-      color: var(--text-main);
-      font-weight: 500;
-      font-size: 0.85rem;
-      padding: 0.4rem 0.8rem;
-      border-radius: 6px;
-      margin: 0.25rem 0.2rem;
-      border: 1px solid var(--border-color);
-      transition: all 0.2s ease;
-    }
-    .skill-badge:hover {
-      border-color: var(--accent-blue);
-      color: var(--accent-blue);
-    }
-    .badge-highlight {
-      background: var(--accent-glow);
-      color: var(--accent-blue);
-      border-color: var(--accent-blue);
-      font-weight: 600;
-    }
-
-    /* Project Cards */
-    .project-card {
-      border: 1px solid var(--border-color);
-      border-radius: 14px;
-      background: var(--bg-card);
-      overflow: hidden;
-      transition: all 0.3s ease;
-      height: 100%;
+      min-height: 100vh;
       display: flex;
-      flex-direction: column;
-    }
-    .project-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--accent-blue);
-      box-shadow: 0 12px 28px -5px var(--accent-glow);
-    }
-    .project-body {
-      padding: 1.6rem;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-    .project-card h5 {
-      color: var(--text-main);
-    }
-    .tech-tag {
-      font-size: 0.75rem;
-      font-family: 'JetBrains Mono', monospace;
-      padding: 0.25rem 0.55rem;
-      border-radius: 4px;
-      background: var(--bg-body);
-      color: var(--text-secondary);
-      border: 1px solid var(--border-color);
-      margin-right: 0.35rem;
-      margin-bottom: 0.35rem;
-      display: inline-block;
-    }
-
-    /* Resume Timeline */
-    .resume .resume-title {
-      color: var(--accent-blue);
-      font-weight: 700;
-    }
-    .resume .resume-item {
-      border-left: 2px solid var(--border-color);
-      padding: 0 0 20px 20px;
-      margin-top: -2px;
+      align-items: center;
+      padding: 80px 20px 60px 40px !important;
+      background: radial-gradient(circle at 80% 20%, rgba(0, 212, 255, 0.12) 0%, transparent 40%),
+                  radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.12) 0%, transparent 40%),
+                  var(--bg-dark) !important;
       position: relative;
     }
-    .resume .resume-item::before {
-      content: "";
-      position: absolute;
-      width: 14px;
-      height: 14px;
-      border-radius: 50px;
-      left: -8px;
-      top: 0;
-      background: var(--bg-body);
-      border: 2px solid var(--accent-blue);
-    }
-    .resume .resume-item h4 {
-      color: var(--text-main);
-      font-weight: 700;
-    }
-    .resume .resume-item h5 {
-      background: var(--bg-subtle);
-      color: var(--accent-blue);
-      border: 1px solid var(--border-color);
-      font-size: 0.85rem;
-      padding: 4px 12px;
-      display: inline-block;
-      font-weight: 600;
-      margin-bottom: 10px;
-      border-radius: 4px;
-    }
-    .resume .resume-item ul li, .resume .resume-item p {
-      color: var(--text-secondary);
-    }
 
-    /* Icon Box / Services */
-    .icon-box {
-      background: var(--bg-card) !important;
-      border: 1px solid var(--border-color) !important;
-      transition: all 0.3s ease;
-    }
-    .icon-box:hover {
-      transform: translateY(-4px);
-      border-color: var(--accent-blue) !important;
-      box-shadow: 0 10px 20px var(--accent-glow);
-    }
-    .icon-box h4 a {
-      color: var(--text-main) !important;
-    }
-
-    /* Contact Cards */
-    .contact-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 1.8rem;
-      height: 100%;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    }
-
-    /* Footer */
-    #footer {
-      background: var(--bg-body) !important;
-      border-top: 1px solid var(--border-color) !important;
-      color: var(--text-secondary);
-    }
-    #footer h4 {
-      color: var(--text-main);
-    }
-  
-    /* Modernized Hero & About UI Enhancements */
     .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 6px 14px;
+      padding: 6px 16px;
       border-radius: 9999px;
-      background: rgba(56, 189, 248, 0.08);
-      border: 1px solid rgba(56, 189, 248, 0.25);
-      color: var(--accent-blue);
+      background: rgba(0, 212, 255, 0.08);
+      border: 1px solid rgba(0, 212, 255, 0.35);
+      color: var(--accent-cyan);
       font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 0.3px;
-      margin-bottom: 1.5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 1.25rem;
     }
-    .hero-badge .pulse-dot {
+    .pulse-dot {
       width: 8px;
       height: 8px;
       border-radius: 50%;
@@ -365,189 +145,316 @@
     }
 
     .hero-title {
-      font-size: 3.4rem;
+      font-size: clamp(2.3rem, 4.2vw, 3.8rem);
       font-weight: 800;
       line-height: 1.15;
       letter-spacing: -1px;
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
+      color: var(--text-main);
     }
     .text-gradient {
-      background: linear-gradient(135deg, var(--text-main) 30%, var(--accent-blue) 100%);
+      background: linear-gradient(135deg, #ffffff 15%, var(--accent-cyan) 60%, #818cf8 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+    [data-theme="light"] .text-gradient {
+      background: linear-gradient(135deg, #0f172a 15%, #0284c7 60%, #4338ca 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-description {
+      font-size: clamp(1rem, 1.35vw, 1.2rem);
+      color: var(--text-muted);
+      line-height: 1.68;
+      max-width: 640px;
+    }
+    .hero-description .typed {
+      color: var(--accent-cyan);
+      font-weight: 600;
+      border-bottom: 2px solid var(--accent-cyan);
+    }
+
+    /* Buttons */
+    .hero-btn-primary {
+      background: linear-gradient(135deg, #00d4ff 0%, #0284c7 100%);
+      color: #070a12 !important;
+      font-weight: 700;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 18px rgba(0, 212, 255, 0.35);
+      transition: all 0.25s ease;
+    }
+    .hero-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 212, 255, 0.55);
+    }
+
+    .hero-btn-secondary {
+      background: var(--bg-card);
+      color: var(--text-main) !important;
+      border: 1px solid var(--border-line);
+      font-weight: 600;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s ease;
+    }
+    .hero-btn-secondary:hover {
+      border-color: var(--accent-cyan);
+      color: var(--accent-cyan) !important;
+      transform: translateY(-2px);
+    }
+
+    .social-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 8px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-line);
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .social-btn:hover {
+      border-color: var(--accent-cyan);
+      color: var(--accent-cyan);
+      transform: translateY(-2px);
     }
 
     .hero-stats-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 1.5rem;
-      margin-top: 2.5rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border-color);
+      gap: 2rem;
+      margin-top: 2.2rem;
+      padding-top: 1.8rem;
+      border-top: 1px solid var(--border-line);
     }
     .stat-item h3 {
-      font-size: 1.75rem;
+      font-size: 1.85rem;
       font-weight: 800;
-      color: var(--accent-blue);
+      color: var(--accent-cyan);
       margin-bottom: 2px;
       font-family: 'JetBrains Mono', monospace;
     }
     .stat-item p {
-      font-size: 0.8rem;
-      color: var(--text-secondary);
+      font-size: 0.76rem;
+      color: var(--text-muted);
       margin: 0;
       text-transform: uppercase;
+      font-weight: 600;
       letter-spacing: 0.5px;
     }
 
-    /* Terminal Window Card for Hero */
+    /* Terminal Box */
     .code-terminal-card {
-      background: #090d16;
-      border: 1px solid var(--border-color);
-      border-radius: 14px;
-      box-shadow: 0 20px 40px -15px rgba(0,0,0,0.7);
-      overflow: hidden;
+      background: rgba(14, 20, 36, 0.95);
+      border: 1px solid rgba(0, 212, 255, 0.25);
+      border-radius: 12px;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.6);
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
+      overflow: hidden;
     }
     .terminal-header {
-      background: #111827;
-      padding: 10px 16px;
+      background: #090d16;
+      padding: 11px 16px;
       display: flex;
       align-items: center;
       gap: 8px;
-      border-bottom: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-line);
     }
-    .terminal-dot {
-      width: 11px;
-      height: 11px;
-      border-radius: 50%;
-      display: inline-block;
-    }
+    .terminal-dot { width: 10px; height: 10px; border-radius: 50%; }
     .dot-red { background: #ef4444; }
     .dot-yellow { background: #f59e0b; }
     .dot-green { background: #10b981; }
-    .terminal-title {
-      color: var(--text-secondary);
-      font-size: 0.75rem;
-      margin-left: 8px;
-    }
-    .terminal-body {
-      padding: 18px 20px;
-      color: #94a3b8;
-      line-height: 1.7;
-    }
-    .terminal-body .keyword { color: #f43f5e; }
-    .terminal-body .fn { color: #38bdf8; }
-    .terminal-body .string { color: #34d399; }
-    .terminal-body .comment { color: #64748b; font-style: italic; }
+    .terminal-title { color: var(--text-muted); font-size: 0.75rem; margin-left: 6px; }
+    .terminal-body { padding: 20px; color: #94a3b8; line-height: 1.65; }
+    .keyword { color: #f43f5e; font-weight: 600; }
+    .fn { color: var(--accent-cyan); }
+    .string { color: #34d399; }
+    .comment { color: #64748b; font-style: italic; }
 
-    /* About Section Overhaul */
-    .about-card-feature {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 1.25rem;
-      transition: all 0.3s ease;
-      height: 100%;
+    /* General Sections */
+    section {
+      padding: 80px 20px !important;
+      background-color: var(--bg-dark) !important;
     }
-    .about-card-feature:hover {
-      border-color: var(--accent-blue);
+    .section-bg {
+      background-color: #0e1424 !important;
+    }
+    .section-title h2 {
+      color: var(--text-main) !important;
+      font-weight: 800;
+    }
+    .section-title h2::after {
+      background: var(--accent-cyan) !important;
+    }
+    .section-title p {
+      color: var(--text-muted) !important;
+    }
+
+    /* Cards */
+    .about-photo-card, .skill-card, .project-card, .icon-box, .contact-card {
+      background: var(--bg-card) !important;
+      border: 1px solid var(--border-line) !important;
+      border-radius: 12px;
+      transition: all 0.25s ease;
+    }
+    .skill-card:hover, .project-card:hover, .icon-box:hover, .contact-card:hover {
+      border-color: var(--accent-cyan) !important;
       transform: translateY(-3px);
     }
+
+    .about-photo-card {
+      padding: 8px;
+      position: relative;
+    }
+    .about-photo-card img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .photo-caption-badge {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      background: rgba(11, 15, 25, 0.9);
+      padding: 8px 14px;
+      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+      border: 1px solid var(--border-line);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--accent-cyan);
+    }
+
+    .about-card-feature {
+      background: var(--bg-card);
+      border: 1px solid var(--border-line);
+      border-radius: 10px;
+      padding: 1.25rem;
+      height: 100%;
+    }
     .about-card-feature i {
-      font-size: 1.75rem;
-      color: var(--accent-blue);
-      margin-bottom: 0.75rem;
+      font-size: 1.8rem;
+      color: var(--accent-cyan);
+      margin-bottom: 0.5rem;
       display: inline-block;
     }
     .about-card-feature h5 {
+      color: var(--text-main);
       font-size: 1rem;
       font-weight: 700;
-      color: var(--text-main);
-      margin-bottom: 0.35rem;
     }
     .about-card-feature p {
-      font-size: 0.82rem;
-      color: var(--text-secondary);
+      color: var(--text-muted);
+      font-size: 0.85rem;
       margin: 0;
-      line-height: 1.5;
     }
 
-    .about-img-wrapper {
-      position: relative;
-      display: inline-block;
-    }
-    .about-img-wrapper::after {
-      content: '';
-      position: absolute;
-      inset: -6px;
-      border-radius: 20px;
-      background: linear-gradient(135deg, var(--accent-blue), transparent 60%);
-      z-index: -1;
-      opacity: 0.35;
-    }
     .about-meta-tag {
       background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      padding: 10px 16px;
-      border-radius: 10px;
-      margin-bottom: 10px;
+      border: 1px solid var(--border-line);
+      padding: 10px 14px;
+      border-radius: 8px;
+      margin-bottom: 8px;
     }
     .about-meta-tag span {
       display: block;
-      font-size: 0.75rem;
-      color: var(--text-secondary);
+      font-size: 0.72rem;
+      color: var(--text-muted);
       text-transform: uppercase;
-      letter-spacing: 0.5px;
     }
     .about-meta-tag strong {
-      font-size: 0.95rem;
       color: var(--text-main);
+      font-size: 0.95rem;
     }
-</style>
+
+    .skill-badge {
+      display: inline-block;
+      background: #172033;
+      color: var(--text-main);
+      font-size: 0.82rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+      margin: 0.2rem;
+      border: 1px solid var(--border-line);
+    }
+    .badge-highlight {
+      background: rgba(0, 212, 255, 0.12);
+      color: var(--accent-cyan);
+      border-color: var(--accent-cyan);
+      font-weight: 600;
+    }
+
+    .resume .resume-title { color: var(--accent-cyan); }
+    .resume .resume-item { border-left: 2px solid var(--border-line); }
+    .resume .resume-item::before { border-color: var(--accent-cyan); background: var(--bg-dark); }
+    .resume .resume-item h4 { color: var(--text-main); }
+    .resume .resume-item h5 { background: #172033; color: var(--accent-cyan); }
+    .resume .resume-item p, .resume .resume-item ul li { color: var(--text-muted); }
+
+    #footer {
+      background: #070a12 !important;
+      border-top: 1px solid var(--border-line) !important;
+      color: var(--text-muted);
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- ======= Quick Theme Switcher ======= -->
+  <!-- Theme Selector -->
   <div class="theme-selector-widget">
-    <i class="bi bi-palette" style="color: var(--accent-blue); font-size: 1.1rem;"></i>
+    <i class="bi bi-palette" style="color: var(--accent-cyan);"></i>
     <select id="themeSelect" onchange="changeTheme(this.value)">
       <option value="dark">Cyber Slate (Dark)</option>
-      <option value="emerald">Obsidian Emerald</option>
       <option value="light">Clean Tech (Light)</option>
     </select>
   </div>
 
   <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
 
-  <!-- ======= Navigation Sidebar ======= -->
+  <!-- Sidebar Navigation -->
   <header id="header" class="d-flex flex-column justify-content-center">
     <nav id="navbar" class="navbar nav-menu">
       <ul>
         <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
         <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
-        <li><a href="#skills" class="nav-link scrollto"><i class="bx bx-chip"></i> <span>Skills & Stack</span></a></li>
+        <li><a href="#skills" class="nav-link scrollto"><i class="bx bx-chip"></i> <span>Skills</span></a></li>
         <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Experience</span></a></li>
         <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-code-block"></i> <span>Projects</span></a></li>
-        <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Core Domains</span></a></li>
+        <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Domains</span></a></li>
         <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
-        <li><a href="assets/resume/DKM.pdf" class="nav-link" target="_blank"><i class="bx bx-download"></i> <span>Download Resume</span></a></li>
       </ul>
     </nav>
   </header>
 
-  
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center min-vh-100 py-5">
-    <div class="container" data-aos="fade-up">
-      <div class="row align-items-center g-5">
+  <section id="hero">
+    <div class="container-fluid" data-aos="fade-up">
+      <div class="row align-items-center g-4">
         
-        <!-- Left Hero Content -->
+        <!-- Left Content -->
         <div class="col-lg-7">
           <div class="hero-badge">
-            <span class="pulse-dot"></span> Available for AI Engineering & Enterprise Architecture
+            <span class="pulse-dot"></span> Available for AI Engineering & Enterprise Systems
           </div>
 
           <h1 class="hero-title">
@@ -555,44 +462,44 @@
             <span class="text-gradient">DEEPAK KUMAR MISHRA</span>
           </h1>
 
-          <p style="font-size: 1.35rem; line-height: 1.6; color: var(--text-secondary); max-width: 620px;">
-            Senior Full-Stack Developer & AI/ML Engineer with 10+ years of production experience building high-concurrency systems, national APIs, and context-aware 
-            <span class="typed" data-typed-items="Agentic AI Workflows, Local LLM Pipelines (Ollama), Secure RAG Systems, Enterprise DigiLocker APIs"></span>
+          <p class="hero-description">
+            AI/ML Engineer & Senior Full-Stack Developer with 10+ years of battle-tested experience engineering national API platforms, sovereign local models, and context-aware 
+            <span class="typed" data-typed-items="Agentic AI Workflows, Private Ollama / Llama 3.1 Pipelines, Enterprise DigiLocker APIs, Robust Vector RAG Systems"></span>
           </p>
 
           <div class="d-flex flex-wrap gap-3 mt-4">
-            <a href="#portfolio" class="btn px-4 py-3" style="background: var(--accent-blue); color: #ffffff; border: none; border-radius: 10px; font-weight: 700; box-shadow: 0 4px 15px var(--accent-glow);">
-              <i class="bx bx-code-block me-1"></i> Explore Production Work
+            <a href="#portfolio" class="hero-btn-primary">
+              <i class="bx bx-code-block"></i> Explore Work
             </a>
-            <a href="assets/resume/DKM.pdf" target="_blank" class="btn px-4 py-3" style="border-radius: 10px; font-weight: 600; border: 1px solid var(--border-color); color: var(--text-main); background: var(--bg-card);">
-              <i class="bx bx-file me-1"></i> View Resume
+            <a href="assets/resume/DKM.pdf" target="_blank" class="hero-btn-secondary">
+              <i class="bx bx-file"></i> View Resume
             </a>
-            <a href="#contact" class="btn px-4 py-3" style="border-radius: 10px; font-weight: 600; border: 1px solid var(--border-color); color: var(--text-main);">
-              <i class="bx bx-envelope me-1"></i> Get In Touch
+            <a href="#contact" class="hero-btn-secondary">
+              <i class="bx bx-paper-plane"></i> Get In Touch
             </a>
           </div>
 
           <!-- Social Links -->
-          <div class="social-links mt-4 d-flex gap-2">
-            <a href="https://linkedin.com/in/odeepakmishra" target="_blank" class="linkedin" title="LinkedIn"><i class="bx bxl-linkedin"></i></a>
-            <a href="https://github.com/odeepak" target="_blank" class="github" title="GitHub"><i class="bx bxl-github"></i></a>
-            <a href="https://wa.me/918294568917" target="_blank" class="whatsapp" title="WhatsApp"><i class="bx bxl-whatsapp"></i></a>
-            <a href="mailto:odeepakmishra@gmail.com" class="envelope" title="Email"><i class="bx bx-envelope"></i></a>
+          <div class="d-flex gap-2 mt-4">
+            <a href="https://linkedin.com/in/odeepakmishra" target="_blank" class="social-btn" title="LinkedIn"><i class="bx bxl-linkedin"></i></a>
+            <a href="https://github.com/odeepak" target="_blank" class="social-btn" title="GitHub"><i class="bx bxl-github"></i></a>
+            <a href="https://wa.me/918294568917" target="_blank" class="social-btn" title="WhatsApp"><i class="bx bxl-whatsapp"></i></a>
+            <a href="mailto:odeepakmishra@gmail.com" class="social-btn" title="Email"><i class="bx bx-envelope"></i></a>
           </div>
 
-          <!-- Quick Stats Counter Row -->
+          <!-- Stats -->
           <div class="hero-stats-row">
             <div class="stat-item">
               <h3>10+</h3>
-              <p>Years Industry Exp</p>
+              <p>Years Experience</p>
             </div>
             <div class="stat-item">
               <h3>Millions</h3>
               <p>Verified Records (NAD)</p>
             </div>
             <div class="stat-item">
-              <h3>Local AI</h3>
-              <p>Ollama & Sovereign RAG</p>
+              <h3>Sovereign</h3>
+              <p>Local Ollama & RAG</p>
             </div>
             <div class="stat-item">
               <h3>100%</h3>
@@ -601,59 +508,57 @@
           </div>
         </div>
 
-        <!-- Right Side: Interactive Live Code Terminal Card -->
-        <div class="col-lg-5" data-aos="zoom-in" data-aos-delay="200">
+        <!-- Right Terminal -->
+        <div class="col-lg-5 d-none d-lg-block">
           <div class="code-terminal-card">
             <div class="terminal-header">
               <span class="terminal-dot dot-red"></span>
               <span class="terminal-dot dot-yellow"></span>
               <span class="terminal-dot dot-green"></span>
-              <span class="terminal-title">deepak_mishra_profile.py</span>
+              <span class="terminal-title">deepak_profile.py</span>
             </div>
             <div class="terminal-body">
-              <span class="comment"># Engineering Stack & Mission Profile</span><br>
+              <span class="comment"># Sovereign AI & Enterprise Systems</span><br>
               <span class="keyword">class</span> <span class="fn">EngineerProfile</span>:<br>
               &nbsp;&nbsp;name = <span class="string">"Deepak Kumar Mishra"</span><br>
-              &nbsp;&nbsp;roles = [<span class="string">"AI/ML Engineer"</span>, <span class="string">"Backend Architect"</span>]<br>
-              &nbsp;&nbsp;experience = <span class="string">"10+ Years"</span><br>
-              &nbsp;&nbsp;location = <span class="string">"Gopalganj / New Delhi, India"</span><br><br>
+              &nbsp;&nbsp;role = <span class="string">"AI/ML Engineer & Backend Architect"</span><br>
+              &nbsp;&nbsp;exp = <span class="string">"10+ Years Enterprise"</span><br><br>
 
-              &nbsp;&nbsp;<span class="keyword">def</span> <span class="fn">current_focus</span>(self):<br>
+              &nbsp;&nbsp;<span class="keyword">def</span> <span class="fn">current_stack</span>(self):<br>
               &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> {<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"ai_orchestration"</span>: [<span class="string">"LangChain"</span>, <span class="string">"LangGraph"</span>, <span class="string">"MCP"</span>],<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"sovereign_llm"</span>: [<span class="string">"Ollama"</span>, <span class="string">"Llama 3.1"</span>, <span class="string">"FastAPI"</span>],<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"enterprise_gov"</span>: [<span class="string">"DigiLocker"</span>, <span class="string">"NAD"</span>, <span class="string">"OpenForge"</span>],<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"reliability"</span>: [<span class="string">"Guardrails"</span>, <span class="string">"Docker"</span>, <span class="string">"MongoDB"</span>]<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"agentic_ai"</span>: [<span class="string">"LangGraph"</span>, <span class="string">"MCP"</span>, <span class="string">"Guardrails"</span>],<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"sovereign_llm"</span>: [<span class="string">"Ollama"</span>, <span class="string">"Llama 3.1"</span>, <span class="string">"ChromaDB"</span>],<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"national_apis"</span>: [<span class="string">"FastAPI"</span>, <span class="string">"DigiLocker"</span>, <span class="string">"NAD"</span>]<br>
               &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
-              <span class="comment">&gt;&gt;&gt; engineer = EngineerProfile()</span><br>
-              <span class="comment">&gt;&gt;&gt; engineer.build_scalable_system()</span><br>
-              <span class="string" style="color: #38bdf8;">[OK] System Ready: 99.9% Uptime, Zero Token Leakage.</span>
+              <span class="comment">&gt;&gt;&gt; profile.verify_ready()</span><br>
+              <span class="fn">[OK] 99.9% High Availability | Zero Data Leakage</span>
             </div>
           </div>
         </div>
 
       </div>
     </div>
-  </section><!-- End Hero Section -->
+  </section>
 
   <main id="main">
 
     <!-- ======= About Section ======= -->
-    <section id="about" class="about py-5">
-      <div class="container" data-aos="fade-up">
+    <section id="about" class="about">
+      <div class="container-fluid" data-aos="fade-up">
 
         <div class="section-title">
           <h2>About Me</h2>
-          <p class="lead">
-            Bridging 10+ years of battle-tested enterprise backend engineering with state-of-the-art Agentic AI.
-          </p>
+          <p>Bridging 10+ years of battle-tested enterprise backend engineering with state-of-the-art Agentic AI.</p>
         </div>
 
-        <div class="row align-items-center g-5">
-          <!-- Profile Visual & Quick Tech Badges -->
+        <div class="row align-items-center g-4">
           <div class="col-lg-4 text-center">
-            <div class="about-img-wrapper mb-4">
-              <img src="assets/img/profile-img.jpg" class="img-fluid rounded-4 shadow-lg" alt="Deepak Kumar Mishra" style="max-height: 400px; width: 100%; object-fit: cover; border: 1px solid var(--border-color);">
+            <div class="about-photo-card mb-3">
+              <img src="assets/img/profile-img.jpg" alt="Deepak Kumar Mishra">
+              <div class="photo-caption-badge">
+                <span>&lt;Senior Architect /&gt;</span>
+                <span>10+ Yrs Exp</span>
+              </div>
             </div>
             
             <div class="row g-2 text-start">
@@ -665,33 +570,31 @@
               </div>
               <div class="col-6">
                 <div class="about-meta-tag">
-                  <span>Credentials</span>
+                  <span>Degrees</span>
                   <strong>MCA, BCA</strong>
                 </div>
               </div>
               <div class="col-12">
                 <div class="about-meta-tag">
-                  <span>Core Focus</span>
-                  <strong>Agentic AI & Full-Stack</strong>
+                  <span>Specialization</span>
+                  <strong>Agentic AI & Full-Stack Systems</strong>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Deep Narrative & Strategic Pillars -->
           <div class="col-lg-8">
-            <h3 style="font-weight: 800; font-size: 1.85rem; color: var(--text-main); margin-bottom: 1rem;">
-              Full-Stack Resilience Meets Autonomous AI Reasoning.
+            <h3 style="font-weight: 800; font-size: 1.8rem; color: var(--text-main); margin-bottom: 1rem;">
+              Enterprise Full-Stack Maturity Meets Autonomous AI Reasoning.
             </h3>
 
-            <p style="font-size: 1.05rem; line-height: 1.75; color: var(--text-secondary);">
-              I am an <strong>AI/ML Engineer and Senior Application Architect</strong> with over a decade of core software engineering experience. I specialize in designing fault-tolerant, high-concurrency systems, verified identity infrastructures, and intelligent automation pipelines.
+            <p style="font-size: 1rem; line-height: 1.7; color: var(--text-muted);">
+              I am an <strong>AI/ML Engineer and Senior Application Architect</strong> with over a decade of core software engineering experience. I specialize in designing fault-tolerant, high-concurrency systems, verified institutional identity infrastructures, and intelligent automation pipelines.
             </p>
-            <p style="font-size: 1.05rem; line-height: 1.75; color: var(--text-secondary);">
-              Over the course of my career—spanning critical government digital missions like the <strong>National Academic Depository (NAD) under DigiLocker</strong> to private enterprise applications—I have engineered high-throughput REST APIs handling millions of authentication transactions. Today, I combine this deep backend maturity with <strong>Agentic AI, Model Context Protocol (MCP), Private Sovereign LLMs (Ollama/Llama 3.1), and AI Safety Guardrails</strong> to build deterministic, audit-ready AI workflows.
+            <p style="font-size: 1rem; line-height: 1.7; color: var(--text-muted);">
+              From delivering critical government digital platforms like the <strong>National Academic Depository (NAD) under DigiLocker</strong> to private enterprise architectures, I build high-throughput endpoints handling millions of verification requests. Today, I combine this deep backend maturity with <strong>Agentic AI, Model Context Protocol (MCP), and Sovereign Local LLMs (Ollama/Llama 3.1)</strong>.
             </p>
 
-            <!-- 3 Core Feature Cards Inside About -->
             <div class="row g-3 mt-3">
               <div class="col-md-4">
                 <div class="about-card-feature">
@@ -716,66 +619,56 @@
               </div>
             </div>
 
-            <!-- Contact/Location summary row -->
-            <div class="d-flex flex-wrap gap-4 mt-4 pt-3 border-top" style="border-color: var(--border-color) !important;">
+            <div class="d-flex flex-wrap gap-4 mt-4 pt-3 border-top" style="border-color: var(--border-line) !important;">
               <div>
                 <span class="text-secondary small d-block">LOCATION</span>
-                <strong style="color: var(--text-main); font-size: 0.95rem;">Gopalganj, Bihar / Remote</strong>
+                <strong style="color: var(--text-main);">Gopalganj, Bihar / Remote</strong>
               </div>
               <div>
                 <span class="text-secondary small d-block">PRIMARY CONTACT</span>
-                <a href="mailto:odeepakmishra@gmail.com" class="text-decoration-none fw-bold" style="color: var(--accent-blue);">odeepakmishra@gmail.com</a>
+                <a href="mailto:odeepakmishra@gmail.com" class="text-decoration-none fw-bold" style="color: var(--accent-cyan);">odeepakmishra@gmail.com</a>
               </div>
               <div>
                 <span class="text-secondary small d-block">WHATSAPP / CALL</span>
-                <strong style="color: var(--text-main); font-size: 0.95rem;">+91 8294568917 / 7979957476</strong>
+                <strong style="color: var(--text-main);">+91 8294568917</strong>
               </div>
             </div>
-
           </div>
         </div>
 
       </div>
-    </section><!-- End About Section -->
+    </section>
 
-
-    <!-- ======= Skills & Stack Section ======= -->
-    <section id="skills" class="skills section-bg py-5">
-      <div class="container" data-aos="fade-up">
+    <!-- ======= Skills Section ======= -->
+    <section id="skills" class="skills section-bg">
+      <div class="container-fluid" data-aos="fade-up">
 
         <div class="section-title">
           <h2>Technical Expertise</h2>
           <p>Frameworks, toolkits, architectures, and infrastructure I leverage in production.</p>
         </div>
 
-        <div class="row">
-
-          <!-- AI & LLM Systems -->
+        <div class="row g-4">
           <div class="col-lg-6">
-            <div class="skill-card">
-              <h5 class="fw-bold mb-3"><i class="bx bx-brain me-2" style="color: var(--accent-blue);"></i> Artificial Intelligence & LLMs</h5>
-              <p class="small text-secondary">Autonomous agent loops, context-aware reasoning, and local inference stacks.</p>
+            <div class="skill-card p-4">
+              <h5 class="fw-bold mb-3"><i class="bx bx-brain me-2" style="color: var(--accent-cyan);"></i> AI & LLM Systems</h5>
               <div>
                 <span class="skill-badge badge-highlight">Agentic AI Workflows</span>
                 <span class="skill-badge badge-highlight">Model Context Protocol (MCP)</span>
                 <span class="skill-badge badge-highlight">AI Security Guardrails</span>
                 <span class="skill-badge">LangChain</span>
                 <span class="skill-badge">LangGraph</span>
-                <span class="skill-badge">LangSmith</span>
                 <span class="skill-badge">Ollama / Llama 3.1</span>
                 <span class="skill-badge">RAG Systems</span>
                 <span class="skill-badge">ChromaDB</span>
-                <span class="skill-badge">Vector DBs & Embeddings</span>
                 <span class="skill-badge">n8n Automation</span>
               </div>
             </div>
           </div>
 
-          <!-- Machine Learning & Data Science -->
           <div class="col-lg-6">
-            <div class="skill-card">
-              <h5 class="fw-bold mb-3"><i class="bx bx-data me-2" style="color: var(--accent-blue);"></i> ML, Deep Learning & Analytics</h5>
-              <p class="small text-secondary">Predictive modeling, data transformation pipelines, and deep neural architectures.</p>
+            <div class="skill-card p-4">
+              <h5 class="fw-bold mb-3"><i class="bx bx-data me-2" style="color: var(--accent-cyan);"></i> ML & Data Science</h5>
               <div>
                 <span class="skill-badge">Python (Pandas, NumPy)</span>
                 <span class="skill-badge">Scikit-learn</span>
@@ -784,33 +677,27 @@
                 <span class="skill-badge">ANN & Deep Learning</span>
                 <span class="skill-badge">NLP Pipelines</span>
                 <span class="skill-badge">Power BI</span>
-                <span class="skill-badge">Data Analysis & EDA</span>
               </div>
             </div>
           </div>
 
-          <!-- Backend & Architecture -->
           <div class="col-lg-6">
-            <div class="skill-card">
-              <h5 class="fw-bold mb-3"><i class="bx bx-server me-2" style="color: var(--accent-blue);"></i> Backend & API Engineering</h5>
-              <p class="small text-secondary">Scalable monoliths, microservices, secure authentication, and institutional integrations.</p>
+            <div class="skill-card p-4">
+              <h5 class="fw-bold mb-3"><i class="bx bx-server me-2" style="color: var(--accent-cyan);"></i> Backend & API Architecture</h5>
               <div>
                 <span class="skill-badge badge-highlight">Python (FastAPI)</span>
                 <span class="skill-badge badge-highlight">PHP / CodeIgniter 3 HMVC & 4</span>
                 <span class="skill-badge">RESTful API Design</span>
                 <span class="skill-badge">DigiLocker / NAD Protocol</span>
                 <span class="skill-badge">XML PullURI Services</span>
-                <span class="skill-badge">Third-Party Gateway APIs</span>
                 <span class="skill-badge">Microservices</span>
               </div>
             </div>
           </div>
 
-          <!-- Databases & DevOps -->
           <div class="col-lg-6">
-            <div class="skill-card">
-              <h5 class="fw-bold mb-3"><i class="bx bx-layer me-2" style="color: var(--accent-blue);"></i> Databases, DevOps & Tooling</h5>
-              <p class="small text-secondary">High-concurrency data persistence, containerized services, and distributed storage.</p>
+            <div class="skill-card p-4">
+              <h5 class="fw-bold mb-3"><i class="bx bx-layer me-2" style="color: var(--accent-cyan);"></i> Databases & DevOps</h5>
               <div>
                 <span class="skill-badge">MongoDB</span>
                 <span class="skill-badge">MySQL / SQL</span>
@@ -819,104 +706,54 @@
                 <span class="skill-badge">MinIO Object Storage</span>
                 <span class="skill-badge">Docker & Docker Compose</span>
                 <span class="skill-badge">Git / Git LFS</span>
-                <span class="skill-badge">Linux Server Administration</span>
               </div>
             </div>
           </div>
-
         </div>
 
       </div>
     </section>
 
-    <!-- ======= Work Experience Section ======= -->
-    <section id="resume" class="resume py-5">
-      <div class="container" data-aos="fade-up">
+    <!-- ======= Resume Section ======= -->
+    <section id="resume" class="resume">
+      <div class="container-fluid" data-aos="fade-up">
 
         <div class="section-title">
           <h2>Professional Experience</h2>
-          <p>Track record in deploying large-scale public sector and private enterprise platforms.</p>
+          <p>Track record in deploying large-scale public sector and enterprise platforms.</p>
         </div>
 
         <div class="row">
           <div class="col-lg-12">
-
-            <!-- NAD DigiLocker -->
             <div class="resume-item">
-              <h4>Senior Technical Consultant / Developer — National Academic Depository (NAD)</h4>
+              <h4>Senior Technical Consultant — National Academic Depository (NAD)</h4>
               <h5>2022 – Present</h5>
               <p><em>Digital India Corporation (MeitY & MoE), New Delhi</em></p>
               <ul>
-                <li>Architected and managed high-concurrency API integrations for the 24x7 online academic depository for academic awards across India.</li>
-                <li>Engineered core <code>PullURIRequest</code> XML/JSON handlers, Base64 hash key derivation schemes, and MongoDB document fallback verification engines ensuring tamper-proof record validation.</li>
-                <li>Enabled seamless issuance and instant verification of digital degrees and marksheets for millions of students nationwide.</li>
+                <li>Architected high-concurrency API integrations for the national academic depository.</li>
+                <li>Engineered core <code>PullURIRequest</code> XML/JSON handlers, Base64 hash key derivation, and MongoDB document fallback verification engines.</li>
+                <li>Enabled seamless issuance and instant verification of digital degrees and marksheets nationwide.</li>
               </ul>
             </div>
 
-            <!-- OpenForge -->
             <div class="resume-item">
               <h4>Core Platform Developer — OpenForge Project</h4>
               <h5>2022 – Present</h5>
               <p><em>Digital India Corporation (MeitY), New Delhi</em></p>
               <ul>
-                <li>Contributed to the Government of India's collaborative open-source platform for e-Governance applications.</li>
-                <li>Promoted cross-department code-sharing modules, automated repository management, and adherence to open-source governance policies.</li>
+                <li>Contributed to India's collaborative open-source platform for e-Governance applications.</li>
+                <li>Promoted cross-department code-sharing modules, automated repository management, and security governance.</li>
               </ul>
             </div>
 
-            <!-- Just Visit Online -->
             <div class="resume-item">
               <h4>Senior Web Developer — Just Visit Online Pvt. Ltd.</h4>
               <h5>2020 – 2021</h5>
               <p><em>Patna, Bihar</em></p>
               <ul>
-                <li>Engineered a scalable multi-category business directory platform serving merchants across India.</li>
-                <li>Implemented elastic search indexing, dynamic location filtering, SMS notification hooks, and payment gateway infrastructure.</li>
+                <li>Built a scalable multi-category business directory platform serving merchants across India.</li>
+                <li>Implemented elastic search indexing, dynamic location filtering, and payment gateways.</li>
               </ul>
-            </div>
-
-            <!-- Earlier Professional Track Record -->
-            <div class="resume-item">
-              <h4>Software Developer Roles & Technical Engagements</h4>
-              <h5>2015 – 2020</h5>
-              <p><em>MAI TARA Microcredit | Techmakes Technology | Hawk Aeronautics | Dialursearch | IIT (ISM) Dhanbad | NIIT Technologies (PHQ)</em></p>
-              <ul>
-                <li>Delivered enterprise financial transaction modules, microcredit management systems, and academic portals.</li>
-                <li>Maintained high code quality standards, relational database optimizations, and cross-functional team mentorship.</li>
-              </ul>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="row mt-5">
-          <div class="col-lg-6">
-            <h3 class="resume-title">Education</h3>
-            <div class="resume-item">
-              <h4>Master of Computer Applications (MCA)</h4>
-              <h5>2012 – 2015</h5>
-              <p><em>KIIT University, Bhubaneswar, Odisha</em></p>
-            </div>
-            <div class="resume-item">
-              <h4>Bachelor of Computer Applications (BCA)</h4>
-              <h5>2007 – 2010</h5>
-              <p><em>Indira Gandhi National Open University (IGNOU), New Delhi</em></p>
-            </div>
-          </div>
-
-          <div class="col-lg-6">
-            <h3 class="resume-title">Certifications & Advanced Training</h3>
-            <div class="resume-item">
-              <h4>Data Science, Machine Learning, Deep Learning & NLP Bootcamp</h4>
-              <p><em>Advanced production implementation covering PyTorch, Scikit-Learn, and TensorFlow.</em></p>
-            </div>
-            <div class="resume-item">
-              <h4>Generative AI Engineering with LangChain & Hugging Face</h4>
-              <p><em>Mastery in RAG architectures, prompt management, and custom LLM inference.</em></p>
-            </div>
-            <div class="resume-item">
-              <h4>Enterprise Agentic AI, n8n Automation & Security Guardrails</h4>
-              <p><em>Hands-on AI agent security, prompt injection defenses, and Model Context Protocol (MCP).</em></p>
             </div>
           </div>
         </div>
@@ -924,266 +761,88 @@
       </div>
     </section>
 
-    <!-- ======= Selected Projects & Architecture ======= -->
-    <section id="portfolio" class="portfolio section-bg py-5">
-      <div class="container" data-aos="fade-up">
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio section-bg">
+      <div class="container-fluid" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Featured Work & Architecture</h2>
-          <p>Key enterprise deployments, AI prototypes, and full-stack systems.</p>
+          <h2>Featured Work</h2>
+          <p>Key production enterprise platforms and AI architectures.</p>
         </div>
 
         <div class="row g-4">
-
-          <!-- Project 1 -->
           <div class="col-lg-4 col-md-6">
-            <div class="project-card">
-              <div class="project-body">
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                  <span class="badge" style="background: #0284c7;">GovTech / Enterprise</span>
-                  <small class="text-secondary">Production</small>
-                </div>
-                <h5 class="fw-bold mb-2">National Academic Depository (NAD)</h5>
-                <p class="small text-secondary flex-grow-1">
-                  High-capacity government verification engine for academic credentials integrated directly into the DigiLocker ecosystem.
-                </p>
-                <div class="mb-3">
-                  <span class="tech-tag">PHP (CodeIgniter)</span>
-                  <span class="tech-tag">MongoDB</span>
-                  <span class="tech-tag">REST APIs</span>
-                  <span class="tech-tag">XML/PKI</span>
-                </div>
-                <a href="https://nad.digilocker.gov.in/" target="_blank" class="btn btn-sm btn-outline-info mt-auto">Visit Platform <i class="bx bx-link-external"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 2 -->
-          <div class="col-lg-4 col-md-6">
-            <div class="project-card">
-              <div class="project-body">
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                  <span class="badge" style="background: #059669;">AI & Open Source</span>
-                  <small class="text-secondary">Local & Sovereign</small>
-                </div>
-                <h5 class="fw-bold mb-2">Local Agentic RAG System</h5>
-                <p class="small text-secondary flex-grow-1">
-                  Privacy-first local intelligent agent using Ollama with Llama 3.1, FastAPI, and ChromaDB vector search with zero third-party API costs.
-                </p>
-                <div class="mb-3">
-                  <span class="tech-tag">Python</span>
-                  <span class="tech-tag">FastAPI</span>
-                  <span class="tech-tag">Ollama</span>
-                  <span class="tech-tag">ChromaDB</span>
-                  <span class="tech-tag">Guardrails</span>
-                </div>
-                <span class="text-secondary small"><i class="bx bx-check-circle text-success"></i> Fully Private Pipeline</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 3 -->
-          <div class="col-lg-4 col-md-6">
-            <div class="project-card">
-              <div class="project-body">
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                  <span class="badge" style="background: #0891b2;">Collaboration</span>
-                  <small class="text-secondary">Production</small>
-                </div>
-                <h5 class="fw-bold mb-2">OpenForge Platform</h5>
-                <p class="small text-secondary flex-grow-1">
-                  Government platform promoting transparent and shared development of public service e-governance software across agencies.
-                </p>
-                <div class="mb-3">
-                  <span class="tech-tag">Open Source</span>
-                  <span class="tech-tag">Git Pipelines</span>
-                  <span class="tech-tag">Microservices</span>
-                  <span class="tech-tag">Security</span>
-                </div>
-                <a href="https://openforge.gov.in/" target="_blank" class="btn btn-sm btn-outline-info mt-auto">Visit Platform <i class="bx bx-link-external"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 4 -->
-          <div class="col-lg-4 col-md-6">
-            <div class="project-card">
-              <div class="project-body">
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                  <span class="badge" style="background: #d97706;">Automation</span>
-                  <small class="text-secondary">Workflow Engine</small>
-                </div>
-                <h5 class="fw-bold mb-2">Enterprise n8n AI Automations</h5>
-                <p class="small text-secondary flex-grow-1">
-                  Multi-agent workflows integrating external messaging, document parsing, and database transactions with strict schema validation.
-                </p>
-                <div class="mb-3">
-                  <span class="tech-tag">n8n</span>
-                  <span class="tech-tag">Webhooks</span>
-                  <span class="tech-tag">LLM Agents</span>
-                  <span class="tech-tag">Redis</span>
-                </div>
-                <span class="text-secondary small"><i class="bx bx-cog text-warning"></i> End-to-End Orchestration</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 5 -->
-          <div class="col-lg-4 col-md-6">
-            <div class="project-card">
-              <div class="project-body">
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                  <span class="badge" style="background: #475569;">Infrastructure</span>
-                  <small class="text-secondary">Self-Hosted</small>
-                </div>
-                <h5 class="fw-bold mb-2">Private S3-Compatible Object Store</h5>
-                <p class="small text-secondary flex-grow-1">
-                  Containerized MinIO and MongoDB infrastructure orchestrated via Docker Compose for local development and private payload storage.
-                </p>
-                <div class="mb-3">
-                  <span class="tech-tag">Docker Compose</span>
-                  <span class="tech-tag">MinIO</span>
-                  <span class="tech-tag">S3 API</span>
-                  <span class="tech-tag">Network Bridge</span>
-                </div>
-                <span class="text-secondary small"><i class="bx bx-server text-light"></i> Containerized</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 6 -->
-          <div class="col-lg-4 col-md-6">
-            <div class="project-card">
-              <div class="project-body">
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                  <span class="badge" style="background: #4f46e5;">Commerce</span>
-                  <small class="text-secondary">Web Portal</small>
-                </div>
-                <h5 class="fw-bold mb-2">Just Visit Online</h5>
-                <p class="small text-secondary flex-grow-1">
-                  National commercial services portal with search indexes, location tracking, and vendor administration dashboards.
-                </p>
-                <div class="mb-3">
-                  <span class="tech-tag">PHP/MySQL</span>
-                  <span class="tech-tag">Elasticsearch</span>
-                  <span class="tech-tag">SMS APIs</span>
-                  <span class="tech-tag">Razorpay</span>
-                </div>
-                <a href="https://www.justvisitonline.com/" target="_blank" class="btn btn-sm btn-outline-info mt-auto">Visit Platform <i class="bx bx-link-external"></i></a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ======= Services / Core Domains Section ======= -->
-    <section id="services" class="services py-5">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Core Domains of Expertise</h2>
-          <p>Specialized architectural capabilities and delivery capabilities.</p>
-        </div>
-
-        <div class="row g-4">
-
-          <div class="col-lg-4 col-md-6">
-            <div class="icon-box h-100 p-4 rounded-3">
-              <div class="icon mb-3"><i class="bx bx-brain" style="font-size: 2.5rem; color: #38bdf8;"></i></div>
-              <h4 class="fw-bold"><a href="#contact" class="text-decoration-none">Agentic AI & LLMs</a></h4>
-              <p class="text-secondary small">Autonomous multi-agent loops, Model Context Protocol (MCP), tool-calling agents, and safe enterprise execution guards.</p>
+            <div class="project-card h-100 p-4 d-flex flex-column">
+              <span class="badge mb-2 align-self-start" style="background: #0284c7;">GovTech</span>
+              <h5 class="fw-bold mb-2">National Academic Depository (NAD)</h5>
+              <p class="small text-muted flex-grow-1">High-capacity verification engine integrated into DigiLocker.</p>
+              <a href="https://nad.digilocker.gov.in/" target="_blank" class="hero-btn-secondary py-2 px-3 mt-3 text-center justify-content-center">View Live Platform <i class="bx bx-link-external"></i></a>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6">
-            <div class="icon-box h-100 p-4 rounded-3">
-              <div class="icon mb-3"><i class="bx bx-data" style="font-size: 2.5rem; color: #34d399;"></i></div>
-              <h4 class="fw-bold"><a href="#contact" class="text-decoration-none">RAG & Vector Pipelines</a></h4>
-              <p class="text-secondary small">Document ingestion, chunking, semantic vector embeddings with ChromaDB, and hybrid keyword/semantic search.</p>
+            <div class="project-card h-100 p-4 d-flex flex-column">
+              <span class="badge mb-2 align-self-start" style="background: #059669;">AI & Sovereign Stack</span>
+              <h5 class="fw-bold mb-2">Local Agentic RAG System</h5>
+              <p class="small text-muted flex-grow-1">Privacy-first local intelligent agent using Ollama (Llama 3.1), FastAPI, and ChromaDB vector search.</p>
+              <div class="mt-3"><span class="badge-highlight px-2 py-1 rounded small">Self-Hosted Production</span></div>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6">
-            <div class="icon-box h-100 p-4 rounded-3">
-              <div class="icon mb-3"><i class="bx bx-network-chart" style="font-size: 2.5rem; color: #fb923c;"></i></div>
-              <h4 class="fw-bold"><a href="#contact" class="text-decoration-none">High-Throughput APIs</a></h4>
-              <p class="text-secondary small">RESTful endpoint architecture in Python (FastAPI) and PHP, designed for sub-second latency and zero data-loss.</p>
+            <div class="project-card h-100 p-4 d-flex flex-column">
+              <span class="badge mb-2 align-self-start" style="background: #4f46e5;">Enterprise</span>
+              <h5 class="fw-bold mb-2">OpenForge Platform</h5>
+              <p class="small text-muted flex-grow-1">Government platform promoting collaborative e-governance software development.</p>
+              <a href="https://openforge.gov.in/" target="_blank" class="hero-btn-secondary py-2 px-3 mt-3 text-center justify-content-center">View Live Platform <i class="bx bx-link-external"></i></a>
             </div>
           </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="icon-box h-100 p-4 rounded-3">
-              <div class="icon mb-3"><i class="bx bx-server" style="font-size: 2.5rem; color: #f472b6;"></i></div>
-              <h4 class="fw-bold"><a href="#contact" class="text-decoration-none">Scalable Web Platforms</a></h4>
-              <p class="text-secondary small">Full-stack web applications with modern frontend responsiveness and resilient backend databases (MongoDB / MySQL / Redis).</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="icon-box h-100 p-4 rounded-3">
-              <div class="icon mb-3"><i class="bx bx-shield-quarter" style="font-size: 2.5rem; color: #f87171;"></i></div>
-              <h4 class="fw-bold"><a href="#contact" class="text-decoration-none">AI Security & Guardrails</a></h4>
-              <p class="text-secondary small">Input sanitization, output validation, prompt injection protection, and defense against hallucinations for enterprise LLMs.</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="icon-box h-100 p-4 rounded-3">
-              <div class="icon mb-3"><i class="bx bx-cube" style="font-size: 2.5rem; color: #a78bfa;"></i></div>
-              <h4 class="fw-bold"><a href="#contact" class="text-decoration-none">Private & Local AI Infra</a></h4>
-              <p class="text-secondary small">Self-hosted offline model inference via Docker, Ollama, and local MinIO storage for complete institutional privacy.</p>
-            </div>
-          </div>
-
         </div>
 
       </div>
     </section>
 
     <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact py-5">
-      <div class="container" data-aos="fade-up">
+    <section id="contact" class="contact">
+      <div class="container-fluid" data-aos="fade-up">
 
         <div class="section-title text-center">
           <h2>Get In Touch</h2>
-          <p class="text-secondary">Interested in collaboration, architectural consulting, or discussing AI engineering opportunities?</p>
+          <p>Open for architectural consulting, AI engineering, and enterprise backend roles.</p>
         </div>
 
-        <div class="row mt-4">
-          <div class="col-lg-4 text-center mb-4">
-            <div class="contact-card">
-              <i class="bi bi-geo-alt" style="color: var(--accent-blue); font-size: 2.2rem;"></i>
-              <h5 class="fw-bold mt-3" style="color: var(--text-main);">Location</h5>
-              <p class="text-secondary mb-0">Mirganj, Gopalganj, Bihar - 841438<br><small>(Open to Remote & Hybrid)</small></p>
+        <div class="row g-4 mt-2">
+          <div class="col-lg-4 text-center">
+            <div class="contact-card p-4">
+              <i class="bi bi-geo-alt" style="color: var(--accent-cyan); font-size: 2rem;"></i>
+              <h5 class="fw-bold mt-3">Location</h5>
+              <p class="text-muted small mb-0">Mirganj, Gopalganj, Bihar - 841438<br>(Open to Remote & Hybrid)</p>
             </div>
           </div>
 
-          <div class="col-lg-4 text-center mb-4">
-            <div class="contact-card">
-              <i class="bi bi-envelope" style="color: var(--accent-blue); font-size: 2.2rem;"></i>
-              <h5 class="fw-bold mt-3" style="color: var(--text-main);">Email</h5>
-              <p class="text-secondary mb-0"><a href="mailto:odeepakmishra@gmail.com" class="text-decoration-none fw-semibold" style="color: var(--accent-blue);">odeepakmishra@gmail.com</a></p>
+          <div class="col-lg-4 text-center">
+            <div class="contact-card p-4">
+              <i class="bi bi-envelope" style="color: var(--accent-cyan); font-size: 2rem;"></i>
+              <h5 class="fw-bold mt-3">Email</h5>
+              <p class="text-muted small mb-0"><a href="mailto:odeepakmishra@gmail.com" class="text-decoration-none fw-bold" style="color: var(--accent-cyan);">odeepakmishra@gmail.com</a></p>
             </div>
           </div>
 
-          <div class="col-lg-4 text-center mb-4">
-            <div class="contact-card">
-              <i class="bi bi-phone" style="color: var(--accent-blue); font-size: 2.2rem;"></i>
-              <h5 class="fw-bold mt-3" style="color: var(--text-main);">Direct Contact</h5>
-              <p class="text-secondary mb-0">Call: <strong style="color: var(--text-main);">+91 7979957476</strong><br>WhatsApp: <strong style="color: var(--text-main);">+91 8294568917</strong></p>
+          <div class="col-lg-4 text-center">
+            <div class="contact-card p-4">
+              <i class="bi bi-phone" style="color: var(--accent-cyan); font-size: 2rem;"></i>
+              <h5 class="fw-bold mt-3">Phone & WhatsApp</h5>
+              <p class="text-muted small mb-0">+91 8294568917 / 7979957476</p>
             </div>
           </div>
         </div>
 
-        <div class="text-center mt-3">
-          <a href="https://wa.me/918294568917" target="_blank" class="btn btn-success px-4 py-2 me-2" style="border-radius: 8px;">
-            <i class="bx bxl-whatsapp me-1"></i> Chat on WhatsApp
+        <div class="text-center mt-4">
+          <a href="https://wa.me/918294568917" target="_blank" class="btn btn-success px-4 py-2 me-2">
+            <i class="bx bxl-whatsapp me-1"></i> WhatsApp
           </a>
-          <a href="https://www.linkedin.com/in/odeepakmishra" target="_blank" class="btn px-4 py-2" style="border-radius: 8px; border: 1px solid var(--accent-blue); color: var(--accent-blue);">
-            <i class="bx bxl-linkedin me-1"></i> Connect on LinkedIn
+          <a href="https://www.linkedin.com/in/odeepakmishra" target="_blank" class="hero-btn-secondary px-4 py-2">
+            <i class="bx bxl-linkedin me-1"></i> LinkedIn
           </a>
         </div>
 
@@ -1192,14 +851,10 @@
 
   </main>
 
-  <!-- ======= Footer ======= -->
   <footer id="footer" class="py-4 text-center">
-    <div class="container">
-      <h4 class="fw-bold mb-2">DEEPAK KUMAR MISHRA</h4>
-      <p class="text-secondary small mb-3">AI/ML Engineer & Senior Full-Stack Developer</p>
-      <div class="copyright text-secondary small">
-        &copy; Copyright <strong><span>Deepak Kumar Mishra</span></strong>. All Rights Reserved.
-      </div>
+    <div class="container-fluid">
+      <h5 class="fw-bold mb-1">DEEPAK KUMAR MISHRA</h5>
+      <p class="small text-muted mb-0">&copy; Copyright. All Rights Reserved.</p>
     </div>
   </footer>
 
@@ -1218,20 +873,16 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
-  <!-- Real-Time Theme Switcher Logic -->
   <script>
     function changeTheme(themeName) {
       if (themeName === 'light') {
         document.documentElement.setAttribute('data-theme', 'light');
-      } else if (themeName === 'emerald') {
-        document.documentElement.setAttribute('data-theme', 'emerald');
       } else {
         document.documentElement.removeAttribute('data-theme');
       }
       localStorage.setItem('preferred_theme', themeName);
     }
 
-    // Load saved preference if available
     document.addEventListener('DOMContentLoaded', () => {
       const savedTheme = localStorage.getItem('preferred_theme');
       if (savedTheme) {
