@@ -534,6 +534,60 @@ section { padding: 100px 60px; }
 .tl-card ul { padding-left: 20px; }
 .tl-card ul li { color: var(--text-muted); font-size: 14px; margin-bottom: 6px; }
 
+/* ── ML projects timeline card ── */
+.tl-dot-purple {
+  border-color: var(--purple);
+  box-shadow: 0 0 10px var(--purple);
+}
+.tl-badge-purple {
+  background: var(--purple-dim); color: var(--purple);
+  border-color: rgba(168,85,247,0.25);
+}
+.tl-card-ml { border-color: rgba(168,85,247,0.25); }
+.tl-card-ml:hover { border-color: var(--purple); }
+
+.tl-ml-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px; margin-top: 16px;
+}
+.tl-ml-item {
+  background: rgba(168,85,247,0.05); border: 1px solid rgba(168,85,247,0.15);
+  border-radius: var(--radius); padding: 16px;
+  transition: var(--transition);
+}
+.tl-ml-item:hover { border-color: var(--purple); background: var(--purple-dim); }
+
+.tl-ml-header {
+  display: flex; align-items: flex-start; gap: 12px; margin-bottom: 8px;
+}
+.tl-ml-icon {
+  width: 36px; height: 36px; border-radius: 8px; flex-shrink: 0;
+  background: var(--orange-dim); border: 1px solid rgba(245,158,11,0.2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; color: var(--orange);
+}
+.tl-ml-icon.purple { background: var(--purple-dim); border-color: rgba(168,85,247,0.2); color: var(--purple); }
+.tl-ml-icon.red    { background: rgba(248,113,113,0.1); border-color: rgba(248,113,113,0.2); color: #f87171; }
+.tl-ml-icon.cyan   { background: var(--cyan-dim); border-color: rgba(0,229,255,0.2); color: var(--cyan); }
+.tl-ml-icon.orange { background: var(--orange-dim); border-color: rgba(245,158,11,0.2); color: var(--orange); }
+
+.tl-ml-header strong { color: var(--text); font-size: 13px; display: block; margin-bottom: 4px; }
+.tl-ml-level {
+  font-size: 10px; font-family: var(--font-mono); font-weight: 600;
+  padding: 2px 8px; border-radius: 50px; letter-spacing: 0.5px;
+}
+.tl-ml-level.beginner    { background: rgba(16,185,129,0.12); color: var(--green); border: 1px solid rgba(16,185,129,0.2); }
+.tl-ml-level.intermediate{ background: rgba(245,158,11,0.12); color: var(--orange); border: 1px solid rgba(245,158,11,0.2); }
+
+.tl-ml-item p { font-size: 12px; color: var(--text-muted); margin-bottom: 10px; line-height: 1.5; }
+
+.tl-ml-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+.tl-ml-tags span {
+  font-size: 11px; padding: 3px 9px; border-radius: 50px;
+  background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
 /* ================================================================
    PROJECTS
    ================================================================ */
