@@ -1,41 +1,62 @@
 <?php
-  /**
-  * Requires the "PHP Email Form" library
-  * The "PHP Email Form" library is available only in the pro version of the template
-  * The library should be uploaded to: vendor/php-email-form/php-email-form.php
-  * For more info and help: https://bootstrapmade.com/php-email-form/
-  */
+/**
+ * Contact form handler
+ * Uses PHP Email Form library (BootstrapMade pro) if available,
+ * otherwise falls back to native PHP mail().
+ */
 
-  // Replace contact@example.com with your real receiving email address
-  $receiving_email_address = 'contact@example.com';
+header('Content-Type: text/plain; charset=utf-8');
 
-  if( file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php' )) {
-    include( $php_email_form );
-  } else {
-    die( 'Unable to load the "PHP Email Form" Library!');
-  }
+// ── Sanitize & validate inputs ──
+$name    = isset($_POST['name'])    ? htmlspecialchars(strip_tags(trim($_POST['name'])),    ENT_QUOTES, 'UTF-8') : '';
+$email   = isset($_POST['email'])   ? filter_var(trim($_POST['email']),   FILTER_SANITIZE_EMAIL)                : '';
+$subject = isset($_POST['subject']) ? htmlspecialchars(strip_tags(trim($_POST['subject'])), ENT_QUOTES, 'UTF-8') : '';
+$message = isset($_POST['message']) ? htmlspecialchars(strip_tags(trim($_POST['message'])), ENT_QUOTES, 'UTF-8') : '';
 
-  $contact = new PHP_Email_Form;
-  $contact->ajax = true;
-  
-  $contact->to = $receiving_email_address;
-  $contact->from_name = $_POST['name'];
-  $contact->from_email = $_POST['email'];
-  $contact->subject = $_POST['subject'];
+if (empty($name) || empty($email) || empty($subject) || empty($message)) {
+    http_response_code(400);
+    echo 'Please fill in all required fields.';
+    exit;
+}
 
-  // Uncomment below code if you want to use SMTP to send emails. You need to enter your correct SMTP credentials
-  /*
-  $contact->smtp = array(
-    'host' => 'example.com',
-    'username' => 'example',
-    'password' => 'pass',
-    'port' => '587'
-  );
-  */
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    http_response_code(400);
+    echo 'Invalid email address.';
+    exit;
+}
 
-  $contact->add_message( $_POST['name'], 'From');
-  $contact->add_message( $_POST['email'], 'Email');
-  $contact->add_message( $_POST['message'], 'Message', 10);
+$receiving_email_address = 'odeepakmishra@gmail.com';
 
-  echo $contact->send();
-?>
+// ── Try PHP Email Form library first ──
+if (file_exists($lib = '../assets/vendor/php-email-form/php-email-form.php')) {
+    include $lib;
+    $contact               = new PHP_Email_Form;
+    $contact->ajax         = true;
+    $contact->to           = $receiving_email_address;
+    $contact->from_name    = $name;
+    $contact->from_email   = $email;
+    $contact->subject      = $subject;
+    $contact->add_message($name,    'From');
+    $contact->add_message($email,   'Email');
+    $contact->add_message($message, 'Message', 10);
+    echo $contact->send();
+    exit;
+}
+
+// ── Fallback: native mail() ──
+$headers  = "From: Portfolio Contact <no-reply@deepakmishra.dev>\r\n";
+$headers .= "Reply-To: {$email}\r\n";
+$headers .= "MIME-Version: 1.0\r\n";
+$headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+
+$body  = "Name:    {$name}\n";
+$body .= "Email:   {$email}\n";
+$body .= "Subject: {$subject}\n\n";
+$body .= "Message:\n{$message}\n";
+
+if (mail($receiving_email_address, $subject, $body, $headers)) {
+    echo 'OK';
+} else {
+    http_response_code(500);
+    echo 'Mail could not be sent. Please contact me directly at odeepakmishra@gmail.com';
+}
