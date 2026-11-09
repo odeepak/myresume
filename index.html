@@ -339,7 +339,173 @@
     #footer h4 {
       color: var(--text-main);
     }
-  </style>
+  
+    /* Modernized Hero & About UI Enhancements */
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      color: var(--accent-blue);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      margin-bottom: 1.5rem;
+    }
+    .hero-badge .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 10px #10b981;
+      display: inline-block;
+    }
+
+    .hero-title {
+      font-size: 3.4rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      margin-bottom: 1rem;
+    }
+    .text-gradient {
+      background: linear-gradient(135deg, var(--text-main) 30%, var(--accent-blue) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-stats-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-color);
+    }
+    .stat-item h3 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--accent-blue);
+      margin-bottom: 2px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .stat-item p {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Terminal Window Card for Hero */
+    .code-terminal-card {
+      background: #090d16;
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      box-shadow: 0 20px 40px -15px rgba(0,0,0,0.7);
+      overflow: hidden;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+    }
+    .terminal-header {
+      background: #111827;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .terminal-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .dot-red { background: #ef4444; }
+    .dot-yellow { background: #f59e0b; }
+    .dot-green { background: #10b981; }
+    .terminal-title {
+      color: var(--text-secondary);
+      font-size: 0.75rem;
+      margin-left: 8px;
+    }
+    .terminal-body {
+      padding: 18px 20px;
+      color: #94a3b8;
+      line-height: 1.7;
+    }
+    .terminal-body .keyword { color: #f43f5e; }
+    .terminal-body .fn { color: #38bdf8; }
+    .terminal-body .string { color: #34d399; }
+    .terminal-body .comment { color: #64748b; font-style: italic; }
+
+    /* About Section Overhaul */
+    .about-card-feature {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.25rem;
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+    .about-card-feature:hover {
+      border-color: var(--accent-blue);
+      transform: translateY(-3px);
+    }
+    .about-card-feature i {
+      font-size: 1.75rem;
+      color: var(--accent-blue);
+      margin-bottom: 0.75rem;
+      display: inline-block;
+    }
+    .about-card-feature h5 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.35rem;
+    }
+    .about-card-feature p {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .about-img-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+    .about-img-wrapper::after {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, var(--accent-blue), transparent 60%);
+      z-index: -1;
+      opacity: 0.35;
+    }
+    .about-meta-tag {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 10px 16px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    .about-meta-tag span {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .about-meta-tag strong {
+      font-size: 0.95rem;
+      color: var(--text-main);
+    }
+</style>
 </head>
 
 <body>
@@ -372,27 +538,103 @@
     </nav>
   </header>
 
+  
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex flex-column justify-content-center min-vh-100">
-    <div class="container" data-aos="zoom-in" data-aos-delay="100">
-      <h1 style="font-size: 3.2rem; margin-bottom: 12px;">DEEPAK KUMAR MISHRA</h1>
-      <p style="font-size: 1.45rem;">Architecting high-scale backend engines & intelligent systems as an <br>
-        <span class="typed" data-typed-items="AI/ML Engineer, Agentic AI Architect, Senior Full-Stack Developer, Enterprise API Specialist"></span>
-      </p>
-      
-      <div class="mt-4">
-        <a href="#portfolio" class="btn px-4 py-2 me-2" style="background: var(--accent-blue); color: #ffffff; border: none; border-radius: 8px; font-weight: 600;">View Projects</a>
-        <a href="#contact" class="btn px-4 py-2" style="border-radius: 8px; font-weight: 600; border: 1px solid var(--border-color); color: var(--text-main);">Contact Me</a>
-      </div>
+  <section id="hero" class="d-flex align-items-center min-vh-100 py-5">
+    <div class="container" data-aos="fade-up">
+      <div class="row align-items-center g-5">
+        
+        <!-- Left Hero Content -->
+        <div class="col-lg-7">
+          <div class="hero-badge">
+            <span class="pulse-dot"></span> Available for AI Engineering & Enterprise Architecture
+          </div>
 
-      <div class="social-links mt-4">
-        <a href="https://linkedin.com/in/odeepakmishra" target="_blank" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-        <a href="https://github.com/odeepak" target="_blank" class="github"><i class="bx bxl-github"></i></a>
-        <a href="https://wa.me/918294568917" target="_blank" class="whatsapp"><i class="bx bxl-whatsapp"></i></a>
-        <a href="mailto:odeepakmishra@gmail.com" class="envelope"><i class="bx bx-envelope"></i></a>
+          <h1 class="hero-title">
+            Hi, I'm <br>
+            <span class="text-gradient">DEEPAK KUMAR MISHRA</span>
+          </h1>
+
+          <p style="font-size: 1.35rem; line-height: 1.6; color: var(--text-secondary); max-width: 620px;">
+            Senior Full-Stack Developer & AI/ML Engineer with 10+ years of production experience building high-concurrency systems, national APIs, and context-aware 
+            <span class="typed" data-typed-items="Agentic AI Workflows, Local LLM Pipelines (Ollama), Secure RAG Systems, Enterprise DigiLocker APIs"></span>
+          </p>
+
+          <div class="d-flex flex-wrap gap-3 mt-4">
+            <a href="#portfolio" class="btn px-4 py-3" style="background: var(--accent-blue); color: #ffffff; border: none; border-radius: 10px; font-weight: 700; box-shadow: 0 4px 15px var(--accent-glow);">
+              <i class="bx bx-code-block me-1"></i> Explore Production Work
+            </a>
+            <a href="assets/resume/DKM.pdf" target="_blank" class="btn px-4 py-3" style="border-radius: 10px; font-weight: 600; border: 1px solid var(--border-color); color: var(--text-main); background: var(--bg-card);">
+              <i class="bx bx-file me-1"></i> View Resume
+            </a>
+            <a href="#contact" class="btn px-4 py-3" style="border-radius: 10px; font-weight: 600; border: 1px solid var(--border-color); color: var(--text-main);">
+              <i class="bx bx-envelope me-1"></i> Get In Touch
+            </a>
+          </div>
+
+          <!-- Social Links -->
+          <div class="social-links mt-4 d-flex gap-2">
+            <a href="https://linkedin.com/in/odeepakmishra" target="_blank" class="linkedin" title="LinkedIn"><i class="bx bxl-linkedin"></i></a>
+            <a href="https://github.com/odeepak" target="_blank" class="github" title="GitHub"><i class="bx bxl-github"></i></a>
+            <a href="https://wa.me/918294568917" target="_blank" class="whatsapp" title="WhatsApp"><i class="bx bxl-whatsapp"></i></a>
+            <a href="mailto:odeepakmishra@gmail.com" class="envelope" title="Email"><i class="bx bx-envelope"></i></a>
+          </div>
+
+          <!-- Quick Stats Counter Row -->
+          <div class="hero-stats-row">
+            <div class="stat-item">
+              <h3>10+</h3>
+              <p>Years Industry Exp</p>
+            </div>
+            <div class="stat-item">
+              <h3>Millions</h3>
+              <p>Verified Records (NAD)</p>
+            </div>
+            <div class="stat-item">
+              <h3>Local AI</h3>
+              <p>Ollama & Sovereign RAG</p>
+            </div>
+            <div class="stat-item">
+              <h3>100%</h3>
+              <p>Production Focused</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side: Interactive Live Code Terminal Card -->
+        <div class="col-lg-5" data-aos="zoom-in" data-aos-delay="200">
+          <div class="code-terminal-card">
+            <div class="terminal-header">
+              <span class="terminal-dot dot-red"></span>
+              <span class="terminal-dot dot-yellow"></span>
+              <span class="terminal-dot dot-green"></span>
+              <span class="terminal-title">deepak_mishra_profile.py</span>
+            </div>
+            <div class="terminal-body">
+              <span class="comment"># Engineering Stack & Mission Profile</span><br>
+              <span class="keyword">class</span> <span class="fn">EngineerProfile</span>:<br>
+              &nbsp;&nbsp;name = <span class="string">"Deepak Kumar Mishra"</span><br>
+              &nbsp;&nbsp;roles = [<span class="string">"AI/ML Engineer"</span>, <span class="string">"Backend Architect"</span>]<br>
+              &nbsp;&nbsp;experience = <span class="string">"10+ Years"</span><br>
+              &nbsp;&nbsp;location = <span class="string">"Gopalganj / New Delhi, India"</span><br><br>
+
+              &nbsp;&nbsp;<span class="keyword">def</span> <span class="fn">current_focus</span>(self):<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> {<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"ai_orchestration"</span>: [<span class="string">"LangChain"</span>, <span class="string">"LangGraph"</span>, <span class="string">"MCP"</span>],<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"sovereign_llm"</span>: [<span class="string">"Ollama"</span>, <span class="string">"Llama 3.1"</span>, <span class="string">"FastAPI"</span>],<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"enterprise_gov"</span>: [<span class="string">"DigiLocker"</span>, <span class="string">"NAD"</span>, <span class="string">"OpenForge"</span>],<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"reliability"</span>: [<span class="string">"Guardrails"</span>, <span class="string">"Docker"</span>, <span class="string">"MongoDB"</span>]<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+              <span class="comment">&gt;&gt;&gt; engineer = EngineerProfile()</span><br>
+              <span class="comment">&gt;&gt;&gt; engineer.build_scalable_system()</span><br>
+              <span class="string" style="color: #38bdf8;">[OK] System Ready: 99.9% Uptime, Zero Token Leakage.</span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
-  </section>
+  </section><!-- End Hero Section -->
 
   <main id="main">
 
@@ -403,44 +645,99 @@
         <div class="section-title">
           <h2>About Me</h2>
           <p class="lead">
-            Senior Software Engineer & AI/ML Specialist with 10+ years of enterprise engineering experience.
+            Bridging 10+ years of battle-tested enterprise backend engineering with state-of-the-art Agentic AI.
           </p>
         </div>
 
-        <div class="row align-items-center">
+        <div class="row align-items-center g-5">
+          <!-- Profile Visual & Quick Tech Badges -->
           <div class="col-lg-4 text-center">
-            <img src="assets/img/profile-img.jpg" class="img-fluid rounded-4 shadow" alt="Deepak Kumar Mishra" style="max-height: 420px; object-fit: cover; border: 1px solid var(--border-color);">
-          </div>
-          <div class="col-lg-8 pt-4 pt-lg-0 content">
-            <h3 style="font-weight: 700; color: var(--text-main);">AI/ML Engineer & Senior Application Architect</h3>
-            <p class="mt-3" style="line-height: 1.7; color: var(--text-secondary);">
-              With over a decade of core experience in architecting and shipping mission-critical web applications, high-throughput REST APIs, and nationwide digital infrastructure (including DigiLocker and the National Academic Depository), I bridge the gap between robust software engineering and production AI systems.
-            </p>
-            <p style="line-height: 1.7; color: var(--text-secondary);">
-              My current engineering focus centers on <strong>Agentic AI architectures, Model Context Protocol (MCP), Retrieval-Augmented Generation (RAG), Local LLM deployment (Ollama / Llama 3.1), and AI Safety Guardrails</strong>. I design systems that combine deterministic API performance with autonomous, context-aware reasoning.
-            </p>
-
-            <div class="row mt-4">
-              <div class="col-md-6">
-                <ul class="list-unstyled">
-                  <li class="py-1"><i class="bi bi-chevron-right" style="color: var(--accent-blue);"></i> <strong>Location:</strong> <span class="text-secondary">Gopalganj, Bihar / New Delhi, India</span></li>
-                  <li class="py-1"><i class="bi bi-chevron-right" style="color: var(--accent-blue);"></i> <strong>Education:</strong> <span class="text-secondary">MCA (KIIT University), BCA (IGNOU)</span></li>
-                  <li class="py-1"><i class="bi bi-chevron-right" style="color: var(--accent-blue);"></i> <strong>Email:</strong> <span class="text-secondary">odeepakmishra@gmail.com</span></li>
-                </ul>
+            <div class="about-img-wrapper mb-4">
+              <img src="assets/img/profile-img.jpg" class="img-fluid rounded-4 shadow-lg" alt="Deepak Kumar Mishra" style="max-height: 400px; width: 100%; object-fit: cover; border: 1px solid var(--border-color);">
+            </div>
+            
+            <div class="row g-2 text-start">
+              <div class="col-6">
+                <div class="about-meta-tag">
+                  <span>Experience</span>
+                  <strong>10+ Years</strong>
+                </div>
               </div>
-              <div class="col-md-6">
-                <ul class="list-unstyled">
-                  <li class="py-1"><i class="bi bi-chevron-right" style="color: var(--accent-blue);"></i> <strong>Experience:</strong> <span class="text-secondary">10+ Years Professional</span></li>
-                  <li class="py-1"><i class="bi bi-chevron-right" style="color: var(--accent-blue);"></i> <strong>Phone / WhatsApp:</strong> <span class="text-secondary">+91 7979957476 / +91 8294568917</span></li>
-                  <li class="py-1"><i class="bi bi-chevron-right" style="color: var(--accent-blue);"></i> <strong>Specialization:</strong> <span class="text-secondary">LLMs, Agentic AI, High-Throughput APIs</span></li>
-                </ul>
+              <div class="col-6">
+                <div class="about-meta-tag">
+                  <span>Credentials</span>
+                  <strong>MCA, BCA</strong>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="about-meta-tag">
+                  <span>Core Focus</span>
+                  <strong>Agentic AI & Full-Stack</strong>
+                </div>
               </div>
             </div>
+          </div>
+
+          <!-- Deep Narrative & Strategic Pillars -->
+          <div class="col-lg-8">
+            <h3 style="font-weight: 800; font-size: 1.85rem; color: var(--text-main); margin-bottom: 1rem;">
+              Full-Stack Resilience Meets Autonomous AI Reasoning.
+            </h3>
+
+            <p style="font-size: 1.05rem; line-height: 1.75; color: var(--text-secondary);">
+              I am an <strong>AI/ML Engineer and Senior Application Architect</strong> with over a decade of core software engineering experience. I specialize in designing fault-tolerant, high-concurrency systems, verified identity infrastructures, and intelligent automation pipelines.
+            </p>
+            <p style="font-size: 1.05rem; line-height: 1.75; color: var(--text-secondary);">
+              Over the course of my career—spanning critical government digital missions like the <strong>National Academic Depository (NAD) under DigiLocker</strong> to private enterprise applications—I have engineered high-throughput REST APIs handling millions of authentication transactions. Today, I combine this deep backend maturity with <strong>Agentic AI, Model Context Protocol (MCP), Private Sovereign LLMs (Ollama/Llama 3.1), and AI Safety Guardrails</strong> to build deterministic, audit-ready AI workflows.
+            </p>
+
+            <!-- 3 Core Feature Cards Inside About -->
+            <div class="row g-3 mt-3">
+              <div class="col-md-4">
+                <div class="about-card-feature">
+                  <i class="bx bx-brain"></i>
+                  <h5>Autonomous Agents</h5>
+                  <p>Multi-agent loops using LangGraph, MCP tools, and deterministic safety guardrails.</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="about-card-feature">
+                  <i class="bx bx-server"></i>
+                  <h5>High-Scale APIs</h5>
+                  <p>FastAPI & PHP CodeIgniter microservices built for zero data loss and sub-second responses.</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="about-card-feature">
+                  <i class="bx bx-lock-alt"></i>
+                  <h5>Sovereign AI Stack</h5>
+                  <p>Local offline models with ChromaDB vector search running in private containerized infrastructure.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Contact/Location summary row -->
+            <div class="d-flex flex-wrap gap-4 mt-4 pt-3 border-top" style="border-color: var(--border-color) !important;">
+              <div>
+                <span class="text-secondary small d-block">LOCATION</span>
+                <strong style="color: var(--text-main); font-size: 0.95rem;">Gopalganj, Bihar / Remote</strong>
+              </div>
+              <div>
+                <span class="text-secondary small d-block">PRIMARY CONTACT</span>
+                <a href="mailto:odeepakmishra@gmail.com" class="text-decoration-none fw-bold" style="color: var(--accent-blue);">odeepakmishra@gmail.com</a>
+              </div>
+              <div>
+                <span class="text-secondary small d-block">WHATSAPP / CALL</span>
+                <strong style="color: var(--text-main); font-size: 0.95rem;">+91 8294568917 / 7979957476</strong>
+              </div>
+            </div>
+
           </div>
         </div>
 
       </div>
-    </section>
+    </section><!-- End About Section -->
+
 
     <!-- ======= Skills & Stack Section ======= -->
     <section id="skills" class="skills section-bg py-5">
