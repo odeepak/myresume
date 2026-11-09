@@ -5,9 +5,9 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Deepak Kumar Mishra | AI/ML Engineer & Senior Full-Stack Developer</title>
-  <meta content="Portfolio of Deepak Kumar Mishra - AI/ML Engineer, Agentic AI Architect & Senior Web Application Developer with 10+ years experience." name="description">
-  <meta content="AI Engineer, ML Engineer, Agentic AI, LLM, MCP, FastAPI, Python, CodeIgniter, DigiLocker, RAG" name="keywords">
+  <title>DEEPAK KUMAR MISHRA | AI/ML Engineer & Senior Full-Stack Developer</title>
+  <meta content="Portfolio of Deepak Kumar Mishra - AI/ML Engineer, Agentic AI Architect, Senior Full-Stack Developer with 10+ years experience in enterprise API design, DigiLocker/NAD, LLMs, and RAG systems." name="description">
+  <meta content="Deepak Kumar Mishra, AI Engineer, ML Engineer, Agentic AI, LLM, MCP, FastAPI, Python, CodeIgniter, DigiLocker, NAD, RAG, ChromaDB" name="keywords">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -29,60 +29,208 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
-  <!-- Custom Modern Overrides -->
+  <!-- Production Theme Architecture -->
   <style>
     :root {
-      --primary-color: #0d6efd;
-      --primary-hover: #0b5ed7;
-      --dark-card-bg: #ffffff;
-      --border-color: #e2e8f0;
-      --text-muted: #64748b;
+      --bg-body: #0b0f19;          /* Deep cyber slate */
+      --bg-card: #111827;          /* Elevated surface dark */
+      --bg-card-hover: #1e293b;
+      --bg-subtle: #0f172a;        /* Section background */
+      --text-main: #f8fafc;
+      --text-secondary: #94a3b8;
+      --accent-blue: #38bdf8;       /* Tech cyan/blue highlight */
+      --accent-glow: rgba(56, 189, 248, 0.15);
+      --border-color: #1f293d;
+      --border-color-hover: #38bdf8;
     }
+
+    /* Light Theme Palette */
+    [data-theme="light"] {
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f1f5f9;
+      --bg-subtle: #eef2f6;
+      --text-main: #0f172a;
+      --text-secondary: #64748b;
+      --accent-blue: #0284c7;
+      --accent-glow: rgba(2, 132, 199, 0.15);
+      --border-color: #cbd5e1;
+      --border-color-hover: #0284c7;
+    }
+
+    /* Emerald Obsidian Palette */
+    [data-theme="emerald"] {
+      --bg-body: #0d1117;
+      --bg-card: #161b22;
+      --bg-card-hover: #21262d;
+      --bg-subtle: #131922;
+      --text-main: #f0f6fc;
+      --text-secondary: #8b949e;
+      --accent-blue: #2ea043;
+      --accent-glow: rgba(46, 160, 67, 0.2);
+      --border-color: #30363d;
+      --border-color-hover: #2ea043;
+    }
+
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      color: #1e293b;
+      background-color: var(--bg-body) !important;
+      color: var(--text-main);
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
+
     code, pre {
       font-family: 'JetBrains Mono', monospace;
     }
-    .skill-card {
-      background: #ffffff;
+
+    /* Theme Switcher Widget */
+    .theme-selector-widget {
+      position: fixed;
+      top: 22px;
+      right: 22px;
+      z-index: 99999;
+      background: var(--bg-card);
       border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 1.5rem;
+      border-radius: 50px;
+      padding: 6px 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    }
+    .theme-selector-widget select {
+      background: transparent;
+      border: none;
+      color: var(--text-main);
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      outline: none;
+    }
+    .theme-selector-widget select option {
+      background: #111827;
+      color: #ffffff;
+    }
+
+    /* Floating Navigation Menu */
+    #header {
+      background: rgba(11, 15, 25, 0.88);
+      backdrop-filter: blur(12px);
+      transition: all 0.3s ease;
+    }
+    [data-theme="light"] #header {
+      background: rgba(255, 255, 255, 0.9);
+    }
+    .nav-menu a, .nav-menu a:focus {
+      background: var(--bg-card);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-color);
+    }
+    .nav-menu a:hover, .nav-menu .active, .nav-menu .active:focus, .nav-menu li:hover>a {
+      color: #ffffff;
+      background: var(--accent-blue);
+      border-color: var(--accent-blue);
+    }
+    .nav-menu a span {
+      background: var(--accent-blue);
+      color: #ffffff;
+    }
+
+    /* Section Styling */
+    section {
+      background-color: var(--bg-body) !important;
+      color: var(--text-main);
+    }
+    .section-bg {
+      background-color: var(--bg-subtle) !important;
+    }
+    .section-title h2 {
+      color: var(--text-main) !important;
+      font-weight: 700;
+    }
+    .section-title h2::after {
+      background: var(--accent-blue) !important;
+    }
+    .section-title p {
+      color: var(--text-secondary) !important;
+    }
+
+    /* Hero Section */
+    #hero {
+      background: radial-gradient(circle at 85% 20%, var(--accent-glow) 0%, transparent 45%),
+                  radial-gradient(circle at 15% 85%, var(--accent-glow) 0%, transparent 45%),
+                  var(--bg-body);
+    }
+    #hero h1 {
+      color: var(--text-main);
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+    #hero p {
+      color: var(--text-secondary);
+    }
+    #hero p span {
+      color: var(--accent-blue);
+      border-bottom: 2px solid var(--accent-blue);
+    }
+    #hero .social-links a {
+      background: var(--bg-card);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-color);
+      transition: all 0.25s ease;
+    }
+    #hero .social-links a:hover {
+      background: var(--accent-blue);
+      color: #ffffff;
+      border-color: var(--accent-blue);
+    }
+
+    /* Skill Cards & Badges */
+    .skill-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 1.6rem;
       margin-bottom: 1.5rem;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.25);
     }
     .skill-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-      border-color: #cbd5e1;
+      border-color: var(--accent-blue);
+      box-shadow: 0 12px 25px -4px var(--accent-glow);
+    }
+    .skill-card h5 {
+      color: var(--text-main);
     }
     .skill-badge {
       display: inline-block;
-      background: #f1f5f9;
-      color: #334155;
+      background: var(--bg-subtle);
+      color: var(--text-main);
       font-weight: 500;
       font-size: 0.85rem;
-      padding: 0.35rem 0.75rem;
+      padding: 0.4rem 0.8rem;
       border-radius: 6px;
       margin: 0.25rem 0.2rem;
-      border: 1px solid #e2e8f0;
-      transition: background 0.2s ease;
+      border: 1px solid var(--border-color);
+      transition: all 0.2s ease;
     }
     .skill-badge:hover {
-      background: #e2e8f0;
+      border-color: var(--accent-blue);
+      color: var(--accent-blue);
     }
     .badge-highlight {
-      background: #eff6ff;
-      color: #1d4ed8;
-      border-color: #bfdbfe;
+      background: var(--accent-glow);
+      color: var(--accent-blue);
+      border-color: var(--accent-blue);
+      font-weight: 600;
     }
+
+    /* Project Cards */
     .project-card {
       border: 1px solid var(--border-color);
       border-radius: 14px;
-      background: #ffffff;
+      background: var(--bg-card);
       overflow: hidden;
       transition: all 0.3s ease;
       height: 100%;
@@ -91,30 +239,120 @@
     }
     .project-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 12px 24px -6px rgba(0,0,0,0.08);
+      border-color: var(--accent-blue);
+      box-shadow: 0 12px 28px -5px var(--accent-glow);
     }
     .project-body {
-      padding: 1.5rem;
+      padding: 1.6rem;
       flex: 1;
       display: flex;
       flex-direction: column;
     }
+    .project-card h5 {
+      color: var(--text-main);
+    }
     .tech-tag {
       font-size: 0.75rem;
       font-family: 'JetBrains Mono', monospace;
-      padding: 0.2rem 0.5rem;
+      padding: 0.25rem 0.55rem;
       border-radius: 4px;
-      background: #f8fafc;
-      color: #475569;
-      border: 1px solid #e2e8f0;
+      background: var(--bg-body);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-color);
       margin-right: 0.35rem;
       margin-bottom: 0.35rem;
       display: inline-block;
+    }
+
+    /* Resume Timeline */
+    .resume .resume-title {
+      color: var(--accent-blue);
+      font-weight: 700;
+    }
+    .resume .resume-item {
+      border-left: 2px solid var(--border-color);
+      padding: 0 0 20px 20px;
+      margin-top: -2px;
+      position: relative;
+    }
+    .resume .resume-item::before {
+      content: "";
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      border-radius: 50px;
+      left: -8px;
+      top: 0;
+      background: var(--bg-body);
+      border: 2px solid var(--accent-blue);
+    }
+    .resume .resume-item h4 {
+      color: var(--text-main);
+      font-weight: 700;
+    }
+    .resume .resume-item h5 {
+      background: var(--bg-subtle);
+      color: var(--accent-blue);
+      border: 1px solid var(--border-color);
+      font-size: 0.85rem;
+      padding: 4px 12px;
+      display: inline-block;
+      font-weight: 600;
+      margin-bottom: 10px;
+      border-radius: 4px;
+    }
+    .resume .resume-item ul li, .resume .resume-item p {
+      color: var(--text-secondary);
+    }
+
+    /* Icon Box / Services */
+    .icon-box {
+      background: var(--bg-card) !important;
+      border: 1px solid var(--border-color) !important;
+      transition: all 0.3s ease;
+    }
+    .icon-box:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent-blue) !important;
+      box-shadow: 0 10px 20px var(--accent-glow);
+    }
+    .icon-box h4 a {
+      color: var(--text-main) !important;
+    }
+
+    /* Contact Cards */
+    .contact-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.8rem;
+      height: 100%;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    /* Footer */
+    #footer {
+      background: var(--bg-body) !important;
+      border-top: 1px solid var(--border-color) !important;
+      color: var(--text-secondary);
+    }
+    #footer h4 {
+      color: var(--text-main);
     }
   </style>
 </head>
 
 <body>
+
+  <!-- ======= Quick Theme Switcher ======= -->
+  <div class="theme-selector-widget">
+    <i class="bi bi-palette" style="color: var(--accent-blue); font-size: 1.1rem;"></i>
+    <select id="themeSelect" onchange="changeTheme(this.value)">
+      <option value="dark">Cyber Slate (Dark)</option>
+      <option value="emerald">Obsidian Emerald</option>
+      <option value="light">Clean Tech (Light)</option>
+    </select>
+  </div>
 
   <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
 
@@ -135,16 +373,16 @@
   </header>
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex flex-column justify-content-center">
+  <section id="hero" class="d-flex flex-column justify-content-center min-vh-100">
     <div class="container" data-aos="zoom-in" data-aos-delay="100">
-      <h1 style="font-weight: 800; font-size: 3rem; margin-bottom: 10px;">DEEPAK KUMAR MISHRA</h1>
-      <p style="font-size: 1.5rem;">I build scalable software & intelligent systems as an <br>
+      <h1 style="font-size: 3.2rem; margin-bottom: 12px;">DEEPAK KUMAR MISHRA</h1>
+      <p style="font-size: 1.45rem;">Architecting high-scale backend engines & intelligent systems as an <br>
         <span class="typed" data-typed-items="AI/ML Engineer, Agentic AI Architect, Senior Full-Stack Developer, Enterprise API Specialist"></span>
       </p>
       
       <div class="mt-4">
-        <a href="#portfolio" class="btn btn-primary px-4 py-2 me-2" style="border-radius: 8px; font-weight: 600;">View Projects</a>
-        <a href="#contact" class="btn btn-outline-dark px-4 py-2" style="border-radius: 8px; font-weight: 600;">Contact Me</a>
+        <a href="#portfolio" class="btn px-4 py-2 me-2" style="background: var(--accent-blue); color: #ffffff; border: none; border-radius: 8px; font-weight: 600;">View Projects</a>
+        <a href="#contact" class="btn px-4 py-2" style="border-radius: 8px; font-weight: 600; border: 1px solid var(--border-color); color: var(--text-main);">Contact Me</a>
       </div>
 
       <div class="social-links mt-4">
@@ -159,42 +397,42 @@
   <main id="main">
 
     <!-- ======= About Section ======= -->
-    <section id="about" class="about">
+    <section id="about" class="about py-5">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
           <h2>About Me</h2>
-          <p class="lead text-muted">
-            Seasoned Senior Software Engineer & AI/ML Specialist with 10+ years of enterprise engineering experience.
+          <p class="lead">
+            Senior Software Engineer & AI/ML Specialist with 10+ years of enterprise engineering experience.
           </p>
         </div>
 
         <div class="row align-items-center">
           <div class="col-lg-4 text-center">
-            <img src="assets/img/profile-img.jpg" class="img-fluid rounded-4 shadow-sm" alt="Deepak Kumar Mishra" style="max-height: 420px; object-fit: cover;">
+            <img src="assets/img/profile-img.jpg" class="img-fluid rounded-4 shadow" alt="Deepak Kumar Mishra" style="max-height: 420px; object-fit: cover; border: 1px solid var(--border-color);">
           </div>
           <div class="col-lg-8 pt-4 pt-lg-0 content">
-            <h3 style="font-weight: 700; color: #0f172a;">AI/ML Engineer & Senior Application Architect</h3>
-            <p class="mt-3" style="line-height: 1.7; color: #475569;">
+            <h3 style="font-weight: 700; color: var(--text-main);">AI/ML Engineer & Senior Application Architect</h3>
+            <p class="mt-3" style="line-height: 1.7; color: var(--text-secondary);">
               With over a decade of core experience in architecting and shipping mission-critical web applications, high-throughput REST APIs, and nationwide digital infrastructure (including DigiLocker and the National Academic Depository), I bridge the gap between robust software engineering and production AI systems.
             </p>
-            <p style="line-height: 1.7; color: #475569;">
+            <p style="line-height: 1.7; color: var(--text-secondary);">
               My current engineering focus centers on <strong>Agentic AI architectures, Model Context Protocol (MCP), Retrieval-Augmented Generation (RAG), Local LLM deployment (Ollama / Llama 3.1), and AI Safety Guardrails</strong>. I design systems that combine deterministic API performance with autonomous, context-aware reasoning.
             </p>
 
             <div class="row mt-4">
               <div class="col-md-6">
                 <ul class="list-unstyled">
-                  <li class="py-1"><i class="bi bi-chevron-right text-primary"></i> <strong>Location:</strong> <span>Gopalganj, Bihar / New Delhi, India</span></li>
-                  <li class="py-1"><i class="bi bi-chevron-right text-primary"></i> <strong>Education:</strong> <span>MCA (KIIT University), BCA (IGNOU)</span></li>
-                  <li class="py-1"><i class="bi bi-chevron-right text-primary"></i> <strong>Email:</strong> <span>odeepakmishra@gmail.com</span></li>
+                  <li class="py-1"><i class="bi bi-chevron-right" style="color: var(--accent-blue);"></i> <strong>Location:</strong> <span class="text-secondary">Gopalganj, Bihar / New Delhi, India</span></li>
+                  <li class="py-1"><i class="bi bi-chevron-right" style="color: var(--accent-blue);"></i> <strong>Education:</strong> <span class="text-secondary">MCA (KIIT University), BCA (IGNOU)</span></li>
+                  <li class="py-1"><i class="bi bi-chevron-right" style="color: var(--accent-blue);"></i> <strong>Email:</strong> <span class="text-secondary">odeepakmishra@gmail.com</span></li>
                 </ul>
               </div>
               <div class="col-md-6">
                 <ul class="list-unstyled">
-                  <li class="py-1"><i class="bi bi-chevron-right text-primary"></i> <strong>Experience:</strong> <span>10+ Years Professional</span></li>
-                  <li class="py-1"><i class="bi bi-chevron-right text-primary"></i> <strong>Phone / WhatsApp:</strong> <span>+91 7979957476 / +91 8294568917</span></li>
-                  <li class="py-1"><i class="bi bi-chevron-right text-primary"></i> <strong>Specialization:</strong> <span>LLMs, Agentic AI, High-Throughput APIs</span></li>
+                  <li class="py-1"><i class="bi bi-chevron-right" style="color: var(--accent-blue);"></i> <strong>Experience:</strong> <span class="text-secondary">10+ Years Professional</span></li>
+                  <li class="py-1"><i class="bi bi-chevron-right" style="color: var(--accent-blue);"></i> <strong>Phone / WhatsApp:</strong> <span class="text-secondary">+91 7979957476 / +91 8294568917</span></li>
+                  <li class="py-1"><i class="bi bi-chevron-right" style="color: var(--accent-blue);"></i> <strong>Specialization:</strong> <span class="text-secondary">LLMs, Agentic AI, High-Throughput APIs</span></li>
                 </ul>
               </div>
             </div>
@@ -205,12 +443,12 @@
     </section>
 
     <!-- ======= Skills & Stack Section ======= -->
-    <section id="skills" class="skills section-bg">
+    <section id="skills" class="skills section-bg py-5">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
           <h2>Technical Expertise</h2>
-          <p>A comprehensive inventory of frameworks, toolkits, and infrastructure I work with in production.</p>
+          <p>Frameworks, toolkits, architectures, and infrastructure I leverage in production.</p>
         </div>
 
         <div class="row">
@@ -218,8 +456,8 @@
           <!-- AI & LLM Systems -->
           <div class="col-lg-6">
             <div class="skill-card">
-              <h5 class="fw-bold mb-3"><i class="bx bx-brain text-primary me-2"></i> Artificial Intelligence & LLMs</h5>
-              <p class="text-muted small">Production-grade AI integrations, autonomous agent loops, and private LLM inference.</p>
+              <h5 class="fw-bold mb-3"><i class="bx bx-brain me-2" style="color: var(--accent-blue);"></i> Artificial Intelligence & LLMs</h5>
+              <p class="small text-secondary">Autonomous agent loops, context-aware reasoning, and local inference stacks.</p>
               <div>
                 <span class="skill-badge badge-highlight">Agentic AI Workflows</span>
                 <span class="skill-badge badge-highlight">Model Context Protocol (MCP)</span>
@@ -239,8 +477,8 @@
           <!-- Machine Learning & Data Science -->
           <div class="col-lg-6">
             <div class="skill-card">
-              <h5 class="fw-bold mb-3"><i class="bx bx-data text-primary me-2"></i> ML, Deep Learning & Analytics</h5>
-              <p class="text-muted small">Predictive modeling, data transformation pipelines, and deep neural architectures.</p>
+              <h5 class="fw-bold mb-3"><i class="bx bx-data me-2" style="color: var(--accent-blue);"></i> ML, Deep Learning & Analytics</h5>
+              <p class="small text-secondary">Predictive modeling, data transformation pipelines, and deep neural architectures.</p>
               <div>
                 <span class="skill-badge">Python (Pandas, NumPy)</span>
                 <span class="skill-badge">Scikit-learn</span>
@@ -257,8 +495,8 @@
           <!-- Backend & Architecture -->
           <div class="col-lg-6">
             <div class="skill-card">
-              <h5 class="fw-bold mb-3"><i class="bx bx-server text-primary me-2"></i> Backend & API Engineering</h5>
-              <p class="text-muted small">Scalable monoliths, microservices, secure authentication, and institutional integrations.</p>
+              <h5 class="fw-bold mb-3"><i class="bx bx-server me-2" style="color: var(--accent-blue);"></i> Backend & API Engineering</h5>
+              <p class="small text-secondary">Scalable monoliths, microservices, secure authentication, and institutional integrations.</p>
               <div>
                 <span class="skill-badge badge-highlight">Python (FastAPI)</span>
                 <span class="skill-badge badge-highlight">PHP / CodeIgniter 3 HMVC & 4</span>
@@ -274,8 +512,8 @@
           <!-- Databases & DevOps -->
           <div class="col-lg-6">
             <div class="skill-card">
-              <h5 class="fw-bold mb-3"><i class="bx bx-layer text-primary me-2"></i> Databases, DevOps & Tooling</h5>
-              <p class="text-muted small">High-concurrency data persistence, containerized services, and distributed storage.</p>
+              <h5 class="fw-bold mb-3"><i class="bx bx-layer me-2" style="color: var(--accent-blue);"></i> Databases, DevOps & Tooling</h5>
+              <p class="small text-secondary">High-concurrency data persistence, containerized services, and distributed storage.</p>
               <div>
                 <span class="skill-badge">MongoDB</span>
                 <span class="skill-badge">MySQL / SQL</span>
@@ -295,12 +533,12 @@
     </section>
 
     <!-- ======= Work Experience Section ======= -->
-    <section id="resume" class="resume">
+    <section id="resume" class="resume py-5">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
           <h2>Professional Experience</h2>
-          <p>Proven track record in deploying large-scale public sector and private enterprise platforms.</p>
+          <p>Track record in deploying large-scale public sector and private enterprise platforms.</p>
         </div>
 
         <div class="row">
@@ -312,9 +550,9 @@
               <h5>2022 – Present</h5>
               <p><em>Digital India Corporation (MeitY & MoE), New Delhi</em></p>
               <ul>
-                <li>Architected and managed high-concurrency API integrations for the 24x7 online academic depository for academic awards across India[cite: 1].</li>
-                <li>Engineered core <code>PullURIRequest</code> XML/JSON handlers, Base64 hash key derivation schemes, and MongoDB document fallback verification engines ensuring tamper-proof record validation[cite: 1].</li>
-                <li>Enabled seamless issuance and instant verification of digital degrees and marksheets for millions of students nationwide[cite: 1].</li>
+                <li>Architected and managed high-concurrency API integrations for the 24x7 online academic depository for academic awards across India.</li>
+                <li>Engineered core <code>PullURIRequest</code> XML/JSON handlers, Base64 hash key derivation schemes, and MongoDB document fallback verification engines ensuring tamper-proof record validation.</li>
+                <li>Enabled seamless issuance and instant verification of digital degrees and marksheets for millions of students nationwide.</li>
               </ul>
             </div>
 
@@ -324,8 +562,8 @@
               <h5>2022 – Present</h5>
               <p><em>Digital India Corporation (MeitY), New Delhi</em></p>
               <ul>
-                <li>Contributed to the Government of India's collaborative open-source platform for e-Governance applications[cite: 1].</li>
-                <li>Promoted cross-department code-sharing modules, automated repository management, and adherence to open-source governance policies[cite: 1].</li>
+                <li>Contributed to the Government of India's collaborative open-source platform for e-Governance applications.</li>
+                <li>Promoted cross-department code-sharing modules, automated repository management, and adherence to open-source governance policies.</li>
               </ul>
             </div>
 
@@ -335,8 +573,8 @@
               <h5>2020 – 2021</h5>
               <p><em>Patna, Bihar</em></p>
               <ul>
-                <li>Engineered a scalable multi-category business directory platform serving merchants across India[cite: 1].</li>
-                <li>Implemented elastic search indexing, dynamic location filtering, SMS notification hooks, and payment gateway infrastructure[cite: 1].</li>
+                <li>Engineered a scalable multi-category business directory platform serving merchants across India.</li>
+                <li>Implemented elastic search indexing, dynamic location filtering, SMS notification hooks, and payment gateway infrastructure.</li>
               </ul>
             </div>
 
@@ -346,8 +584,8 @@
               <h5>2015 – 2020</h5>
               <p><em>MAI TARA Microcredit | Techmakes Technology | Hawk Aeronautics | Dialursearch | IIT (ISM) Dhanbad | NIIT Technologies (PHQ)</em></p>
               <ul>
-                <li>Delivered enterprise financial transaction modules, microcredit management systems, and academic portals[cite: 1].</li>
-                <li>Maintained high code quality standards, relational database optimizations, and cross-functional team mentorship[cite: 1].</li>
+                <li>Delivered enterprise financial transaction modules, microcredit management systems, and academic portals.</li>
+                <li>Maintained high code quality standards, relational database optimizations, and cross-functional team mentorship.</li>
               </ul>
             </div>
 
@@ -390,7 +628,7 @@
     </section>
 
     <!-- ======= Selected Projects & Architecture ======= -->
-    <section id="portfolio" class="portfolio section-bg">
+    <section id="portfolio" class="portfolio section-bg py-5">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
@@ -405,11 +643,11 @@
             <div class="project-card">
               <div class="project-body">
                 <div class="d-flex justify-content-between align-items-center mb-2">
-                  <span class="badge bg-primary">GovTech / Enterprise</span>
-                  <small class="text-muted">Production</small>
+                  <span class="badge" style="background: #0284c7;">GovTech / Enterprise</span>
+                  <small class="text-secondary">Production</small>
                 </div>
                 <h5 class="fw-bold mb-2">National Academic Depository (NAD)</h5>
-                <p class="text-muted small flex-grow-1">
+                <p class="small text-secondary flex-grow-1">
                   High-capacity government verification engine for academic credentials integrated directly into the DigiLocker ecosystem.
                 </p>
                 <div class="mb-3">
@@ -418,7 +656,7 @@
                   <span class="tech-tag">REST APIs</span>
                   <span class="tech-tag">XML/PKI</span>
                 </div>
-                <a href="https://nad.digilocker.gov.in/" target="_blank" class="btn btn-sm btn-outline-primary mt-auto">Visit Platform <i class="bx bx-link-external"></i></a>
+                <a href="https://nad.digilocker.gov.in/" target="_blank" class="btn btn-sm btn-outline-info mt-auto">Visit Platform <i class="bx bx-link-external"></i></a>
               </div>
             </div>
           </div>
@@ -428,11 +666,11 @@
             <div class="project-card">
               <div class="project-body">
                 <div class="d-flex justify-content-between align-items-center mb-2">
-                  <span class="badge bg-success">AI & Open Source</span>
-                  <small class="text-muted">Local & Sovereign</small>
+                  <span class="badge" style="background: #059669;">AI & Open Source</span>
+                  <small class="text-secondary">Local & Sovereign</small>
                 </div>
                 <h5 class="fw-bold mb-2">Local Agentic RAG System</h5>
-                <p class="text-muted small flex-grow-1">
+                <p class="small text-secondary flex-grow-1">
                   Privacy-first local intelligent agent using Ollama with Llama 3.1, FastAPI, and ChromaDB vector search with zero third-party API costs.
                 </p>
                 <div class="mb-3">
@@ -442,7 +680,7 @@
                   <span class="tech-tag">ChromaDB</span>
                   <span class="tech-tag">Guardrails</span>
                 </div>
-                <span class="text-muted small"><i class="bx bx-check-circle text-success"></i> Fully Private Pipeline</span>
+                <span class="text-secondary small"><i class="bx bx-check-circle text-success"></i> Fully Private Pipeline</span>
               </div>
             </div>
           </div>
@@ -452,11 +690,11 @@
             <div class="project-card">
               <div class="project-body">
                 <div class="d-flex justify-content-between align-items-center mb-2">
-                  <span class="badge bg-info text-dark">Collaboration</span>
-                  <small class="text-muted">Production</small>
+                  <span class="badge" style="background: #0891b2;">Collaboration</span>
+                  <small class="text-secondary">Production</small>
                 </div>
                 <h5 class="fw-bold mb-2">OpenForge Platform</h5>
-                <p class="text-muted small flex-grow-1">
+                <p class="small text-secondary flex-grow-1">
                   Government platform promoting transparent and shared development of public service e-governance software across agencies.
                 </p>
                 <div class="mb-3">
@@ -465,7 +703,7 @@
                   <span class="tech-tag">Microservices</span>
                   <span class="tech-tag">Security</span>
                 </div>
-                <a href="https://openforge.gov.in/" target="_blank" class="btn btn-sm btn-outline-primary mt-auto">Visit Platform <i class="bx bx-link-external"></i></a>
+                <a href="https://openforge.gov.in/" target="_blank" class="btn btn-sm btn-outline-info mt-auto">Visit Platform <i class="bx bx-link-external"></i></a>
               </div>
             </div>
           </div>
@@ -475,11 +713,11 @@
             <div class="project-card">
               <div class="project-body">
                 <div class="d-flex justify-content-between align-items-center mb-2">
-                  <span class="badge bg-warning text-dark">Automation</span>
-                  <small class="text-muted">Workflow Engine</small>
+                  <span class="badge" style="background: #d97706;">Automation</span>
+                  <small class="text-secondary">Workflow Engine</small>
                 </div>
                 <h5 class="fw-bold mb-2">Enterprise n8n AI Automations</h5>
-                <p class="text-muted small flex-grow-1">
+                <p class="small text-secondary flex-grow-1">
                   Multi-agent workflows integrating external messaging, document parsing, and database transactions with strict schema validation.
                 </p>
                 <div class="mb-3">
@@ -488,7 +726,7 @@
                   <span class="tech-tag">LLM Agents</span>
                   <span class="tech-tag">Redis</span>
                 </div>
-                <span class="text-muted small"><i class="bx bx-cog text-warning"></i> End-to-End Orchestration</span>
+                <span class="text-secondary small"><i class="bx bx-cog text-warning"></i> End-to-End Orchestration</span>
               </div>
             </div>
           </div>
@@ -498,11 +736,11 @@
             <div class="project-card">
               <div class="project-body">
                 <div class="d-flex justify-content-between align-items-center mb-2">
-                  <span class="badge bg-dark">Self-Hosted</span>
-                  <small class="text-muted">Infrastructure</small>
+                  <span class="badge" style="background: #475569;">Infrastructure</span>
+                  <small class="text-secondary">Self-Hosted</small>
                 </div>
                 <h5 class="fw-bold mb-2">Private S3-Compatible Object Store</h5>
-                <p class="text-muted small flex-grow-1">
+                <p class="small text-secondary flex-grow-1">
                   Containerized MinIO and MongoDB infrastructure orchestrated via Docker Compose for local development and private payload storage.
                 </p>
                 <div class="mb-3">
@@ -511,7 +749,7 @@
                   <span class="tech-tag">S3 API</span>
                   <span class="tech-tag">Network Bridge</span>
                 </div>
-                <span class="text-muted small"><i class="bx bx-server text-dark"></i> Containerized</span>
+                <span class="text-secondary small"><i class="bx bx-server text-light"></i> Containerized</span>
               </div>
             </div>
           </div>
@@ -521,11 +759,11 @@
             <div class="project-card">
               <div class="project-body">
                 <div class="d-flex justify-content-between align-items-center mb-2">
-                  <span class="badge bg-secondary">Commerce</span>
-                  <small class="text-muted">Web Portal</small>
+                  <span class="badge" style="background: #4f46e5;">Commerce</span>
+                  <small class="text-secondary">Web Portal</small>
                 </div>
                 <h5 class="fw-bold mb-2">Just Visit Online</h5>
-                <p class="text-muted small flex-grow-1">
+                <p class="small text-secondary flex-grow-1">
                   National commercial services portal with search indexes, location tracking, and vendor administration dashboards.
                 </p>
                 <div class="mb-3">
@@ -534,7 +772,7 @@
                   <span class="tech-tag">SMS APIs</span>
                   <span class="tech-tag">Razorpay</span>
                 </div>
-                <a href="https://www.justvisitonline.com/" target="_blank" class="btn btn-sm btn-outline-primary mt-auto">Visit Platform <i class="bx bx-link-external"></i></a>
+                <a href="https://www.justvisitonline.com/" target="_blank" class="btn btn-sm btn-outline-info mt-auto">Visit Platform <i class="bx bx-link-external"></i></a>
               </div>
             </div>
           </div>
@@ -545,61 +783,61 @@
     </section>
 
     <!-- ======= Services / Core Domains Section ======= -->
-    <section id="services" class="services">
+    <section id="services" class="services py-5">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
           <h2>Core Domains of Expertise</h2>
-          <p>What I bring to teams, architectural initiatives, and enterprise systems.</p>
+          <p>Specialized architectural capabilities and delivery capabilities.</p>
         </div>
 
         <div class="row g-4">
 
           <div class="col-lg-4 col-md-6">
-            <div class="icon-box iconbox-blue h-100 p-4 rounded-3 border">
-              <div class="icon mb-3"><i class="bx bx-brain" style="font-size: 2.5rem; color: #0d6efd;"></i></div>
-              <h4 class="fw-bold"><a href="#contact" class="text-dark text-decoration-none">Agentic AI & LLMs</a></h4>
-              <p class="text-muted small">Autonomous multi-agent loops, Model Context Protocol (MCP), tool-calling agents, and safe enterprise execution guards.</p>
+            <div class="icon-box h-100 p-4 rounded-3">
+              <div class="icon mb-3"><i class="bx bx-brain" style="font-size: 2.5rem; color: #38bdf8;"></i></div>
+              <h4 class="fw-bold"><a href="#contact" class="text-decoration-none">Agentic AI & LLMs</a></h4>
+              <p class="text-secondary small">Autonomous multi-agent loops, Model Context Protocol (MCP), tool-calling agents, and safe enterprise execution guards.</p>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6">
-            <div class="icon-box iconbox-teal h-100 p-4 rounded-3 border">
-              <div class="icon mb-3"><i class="bx bx-data" style="font-size: 2.5rem; color: #20c997;"></i></div>
-              <h4 class="fw-bold"><a href="#contact" class="text-dark text-decoration-none">RAG & Vector Pipelines</a></h4>
-              <p class="text-muted small">Document ingestion, chunking, semantic vector embeddings with ChromaDB, and hybrid keyword/semantic search.</p>
+            <div class="icon-box h-100 p-4 rounded-3">
+              <div class="icon mb-3"><i class="bx bx-data" style="font-size: 2.5rem; color: #34d399;"></i></div>
+              <h4 class="fw-bold"><a href="#contact" class="text-decoration-none">RAG & Vector Pipelines</a></h4>
+              <p class="text-secondary small">Document ingestion, chunking, semantic vector embeddings with ChromaDB, and hybrid keyword/semantic search.</p>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6">
-            <div class="icon-box iconbox-orange h-100 p-4 rounded-3 border">
-              <div class="icon mb-3"><i class="bx bx-network-chart" style="font-size: 2.5rem; color: #fd7e14;"></i></div>
-              <h4 class="fw-bold"><a href="#contact" class="text-dark text-decoration-none">High-Throughput APIs</a></h4>
-              <p class="text-muted small">RESTful endpoint architecture in Python (FastAPI) and PHP, designed for sub-second latency and zero data-loss.</p>
+            <div class="icon-box h-100 p-4 rounded-3">
+              <div class="icon mb-3"><i class="bx bx-network-chart" style="font-size: 2.5rem; color: #fb923c;"></i></div>
+              <h4 class="fw-bold"><a href="#contact" class="text-decoration-none">High-Throughput APIs</a></h4>
+              <p class="text-secondary small">RESTful endpoint architecture in Python (FastAPI) and PHP, designed for sub-second latency and zero data-loss.</p>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6">
-            <div class="icon-box iconbox-pink h-100 p-4 rounded-3 border">
-              <div class="icon mb-3"><i class="bx bx-server" style="font-size: 2.5rem; color: #d63384;"></i></div>
-              <h4 class="fw-bold"><a href="#contact" class="text-dark text-decoration-none">Scalable Web Platforms</a></h4>
-              <p class="text-muted small">Full-stack web applications with modern frontend responsiveness and resilient backend databases (MongoDB / MySQL / Redis).</p>
+            <div class="icon-box h-100 p-4 rounded-3">
+              <div class="icon mb-3"><i class="bx bx-server" style="font-size: 2.5rem; color: #f472b6;"></i></div>
+              <h4 class="fw-bold"><a href="#contact" class="text-decoration-none">Scalable Web Platforms</a></h4>
+              <p class="text-secondary small">Full-stack web applications with modern frontend responsiveness and resilient backend databases (MongoDB / MySQL / Redis).</p>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6">
-            <div class="icon-box iconbox-red h-100 p-4 rounded-3 border">
-              <div class="icon mb-3"><i class="bx bx-shield-quarter" style="font-size: 2.5rem; color: #dc3545;"></i></div>
-              <h4 class="fw-bold"><a href="#contact" class="text-dark text-decoration-none">AI Security & Guardrails</a></h4>
-              <p class="text-muted small">Input sanitization, output validation, prompt injection protection, and defense against hallucinations for enterprise LLMs.</p>
+            <div class="icon-box h-100 p-4 rounded-3">
+              <div class="icon mb-3"><i class="bx bx-shield-quarter" style="font-size: 2.5rem; color: #f87171;"></i></div>
+              <h4 class="fw-bold"><a href="#contact" class="text-decoration-none">AI Security & Guardrails</a></h4>
+              <p class="text-secondary small">Input sanitization, output validation, prompt injection protection, and defense against hallucinations for enterprise LLMs.</p>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6">
-            <div class="icon-box iconbox-purple h-100 p-4 rounded-3 border">
-              <div class="icon mb-3"><i class="bx bx-cube" style="font-size: 2.5rem; color: #6f42c1;"></i></div>
-              <h4 class="fw-bold"><a href="#contact" class="text-dark text-decoration-none">Private & Local AI Infra</a></h4>
-              <p class="text-muted solid">Self-hosted offline model inference via Docker, Ollama, and local MinIO storage for complete institutional privacy.</p>
+            <div class="icon-box h-100 p-4 rounded-3">
+              <div class="icon mb-3"><i class="bx bx-cube" style="font-size: 2.5rem; color: #a78bfa;"></i></div>
+              <h4 class="fw-bold"><a href="#contact" class="text-decoration-none">Private & Local AI Infra</a></h4>
+              <p class="text-secondary small">Self-hosted offline model inference via Docker, Ollama, and local MinIO storage for complete institutional privacy.</p>
             </div>
           </div>
 
@@ -609,36 +847,36 @@
     </section>
 
     <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
+    <section id="contact" class="contact py-5">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title text-center">
           <h2>Get In Touch</h2>
-          <p class="text-muted">Interested in collaboration, architectural consulting, or discussing AI engineering opportunities?</p>
+          <p class="text-secondary">Interested in collaboration, architectural consulting, or discussing AI engineering opportunities?</p>
         </div>
 
         <div class="row mt-4">
           <div class="col-lg-4 text-center mb-4">
-            <div class="p-4 border rounded-3 h-100 shadow-sm bg-white">
-              <i class="bi bi-geo-alt text-primary" style="font-size: 2rem;"></i>
-              <h5 class="fw-bold mt-3">Location</h5>
-              <p class="text-muted mb-0">Mirganj, Gopalganj, Bihar - 841438<br><small class="text-secondary">(Open to Remote & Hybrid)</small></p>
+            <div class="contact-card">
+              <i class="bi bi-geo-alt" style="color: var(--accent-blue); font-size: 2.2rem;"></i>
+              <h5 class="fw-bold mt-3" style="color: var(--text-main);">Location</h5>
+              <p class="text-secondary mb-0">Mirganj, Gopalganj, Bihar - 841438<br><small>(Open to Remote & Hybrid)</small></p>
             </div>
           </div>
 
           <div class="col-lg-4 text-center mb-4">
-            <div class="p-4 border rounded-3 h-100 shadow-sm bg-white">
-              <i class="bi bi-envelope text-primary" style="font-size: 2rem;"></i>
-              <h5 class="fw-bold mt-3">Email</h5>
-              <p class="text-muted mb-0"><a href="mailto:odeepakmishra@gmail.com" class="text-decoration-none text-dark fw-semibold">odeepakmishra@gmail.com</a></p>
+            <div class="contact-card">
+              <i class="bi bi-envelope" style="color: var(--accent-blue); font-size: 2.2rem;"></i>
+              <h5 class="fw-bold mt-3" style="color: var(--text-main);">Email</h5>
+              <p class="text-secondary mb-0"><a href="mailto:odeepakmishra@gmail.com" class="text-decoration-none fw-semibold" style="color: var(--accent-blue);">odeepakmishra@gmail.com</a></p>
             </div>
           </div>
 
           <div class="col-lg-4 text-center mb-4">
-            <div class="p-4 border rounded-3 h-100 shadow-sm bg-white">
-              <i class="bi bi-phone text-primary" style="font-size: 2rem;"></i>
-              <h5 class="fw-bold mt-3">Direct Contact</h5>
-              <p class="text-muted mb-0">Call: <strong>+91 7979957476</strong><br>WhatsApp: <strong>+91 8294568917</strong></p>
+            <div class="contact-card">
+              <i class="bi bi-phone" style="color: var(--accent-blue); font-size: 2.2rem;"></i>
+              <h5 class="fw-bold mt-3" style="color: var(--text-main);">Direct Contact</h5>
+              <p class="text-secondary mb-0">Call: <strong style="color: var(--text-main);">+91 7979957476</strong><br>WhatsApp: <strong style="color: var(--text-main);">+91 8294568917</strong></p>
             </div>
           </div>
         </div>
@@ -647,7 +885,7 @@
           <a href="https://wa.me/918294568917" target="_blank" class="btn btn-success px-4 py-2 me-2" style="border-radius: 8px;">
             <i class="bx bxl-whatsapp me-1"></i> Chat on WhatsApp
           </a>
-          <a href="https://www.linkedin.com/in/odeepakmishra" target="_blank" class="btn btn-primary px-4 py-2" style="border-radius: 8px;">
+          <a href="https://www.linkedin.com/in/odeepakmishra" target="_blank" class="btn px-4 py-2" style="border-radius: 8px; border: 1px solid var(--accent-blue); color: var(--accent-blue);">
             <i class="bx bxl-linkedin me-1"></i> Connect on LinkedIn
           </a>
         </div>
@@ -658,11 +896,11 @@
   </main>
 
   <!-- ======= Footer ======= -->
-  <footer id="footer" class="py-4 bg-light border-top text-center">
+  <footer id="footer" class="py-4 text-center">
     <div class="container">
       <h4 class="fw-bold mb-2">DEEPAK KUMAR MISHRA</h4>
-      <p class="text-muted small mb-3">AI/ML Engineer & Senior Full-Stack Developer</p>
-      <div class="copyright text-muted small">
+      <p class="text-secondary small mb-3">AI/ML Engineer & Senior Full-Stack Developer</p>
+      <div class="copyright text-secondary small">
         &copy; Copyright <strong><span>Deepak Kumar Mishra</span></strong>. All Rights Reserved.
       </div>
     </div>
@@ -682,6 +920,29 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!-- Real-Time Theme Switcher Logic -->
+  <script>
+    function changeTheme(themeName) {
+      if (themeName === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+      } else if (themeName === 'emerald') {
+        document.documentElement.setAttribute('data-theme', 'emerald');
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+      }
+      localStorage.setItem('preferred_theme', themeName);
+    }
+
+    // Load saved preference if available
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedTheme = localStorage.getItem('preferred_theme');
+      if (savedTheme) {
+        document.getElementById('themeSelect').value = savedTheme;
+        changeTheme(savedTheme);
+      }
+    });
+  </script>
 
 </body>
 </html>
